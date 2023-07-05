@@ -7,9 +7,9 @@ clear
 close
 
 % adding paths
-addpath('D:\00-Robotics\02-Robot Path Planning\Methods\Astar-Single & Multi-MATLAB')
-addpath('D:\00-Robotics\02-Robot Path Planning\Methods\Astar-Single & Multi-MATLAB\MRPP');
-addpath('D:\00-Robotics\02-Robot Path Planning\Methods\Astar-Single & Multi-MATLAB\MRPP\Models')
+addpath('..\common');
+addpath('..\models');
+
 
 % settings
 model.dist_type = 'euclidean';          % '4adj'  '8adj'
@@ -17,8 +17,8 @@ model.adj_type = '8adj';                % euclidean manhattan;
 
 % create model
 % createModel_mh_1 createModel_mh_2 createModel_mh_ctest
-% model = createModel(model);
-load m12x12_obst_50_r_35_20; % 14 20
+model = createModel_mh_ctest(model);
+% load m12x12_obst_50_r_35_20; % 14 20
 model.msc = 100;
 
 % % 45r_2

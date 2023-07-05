@@ -8,9 +8,8 @@ clear
 close
 
 % adding paths
-addpath('D:\00-Robotics\02-Robot Path Planning\Methods\Astar-Single & Multi-MATLAB')
-addpath('D:\00-Robotics\02-Robot Path Planning\Methods\Astar-Single & Multi-MATLAB\SRPP')
-addpath('D:\00-Robotics\02-Robot Path Planning\Methods\Astar-Single & Multi-MATLAB\MRPP')
+addpath('..\common');
+addpath('..\models');
 
 %% settings
 Model.expandMethod = 'heading';  % random or heading
@@ -23,7 +22,7 @@ Model.occLength = 1000;
 %% create Model
 
 % from function createModel_mrdsl_Article createModel_mrdsl_2
-Model = createModel_mrdsl_1(Model);
+Model = createModel_mrdsl_2(Model);
 
 % robotCount
 robotCount = Model.robotCount;

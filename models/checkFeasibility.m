@@ -1,7 +1,7 @@
 function isFeasible = checkFeasibility(Model)
 
-addpath('D:\00-Robotics\02-Robot Path Planning\Methods\Astar-Single & Multi-MATLAB\SRPP');
-addpath('D:\00-Robotics\02-Robot Path Planning\Methods\Astar-Single & Multi-MATLAB\SRPP\01-SRPP-Astar');
+addpath('..\common');
+addpath('..\models');
 
 Robots = Model.Robot;
 isFeasible =true;
@@ -19,7 +19,7 @@ for iRobot = 1:Model.robotCount
                 return
             otherwise
                 rethrow(ME)
-                %disp(ME.message);
+                disp(ME.message);
         end
     end
 end
@@ -30,6 +30,7 @@ Model.Obst.nodeNumber = [Model.Obst.nodeNumber [Robots.targetNode]];
 Model.Obst.x = [Model.Obst.x [Robots.xt]];
 Model.Obst.y = [Model.Obst.y [Robots.yt]];
 
+isFeasible2=1;
 for iRobot = 1:Model.robotCount
     model = Model;
     model.Robot = Robots(iRobot);
@@ -48,7 +49,7 @@ for iRobot = 1:Model.robotCount
                 return
             otherwise
                 rethrow(ME)
-                % disp(ME.message);
+                disp(ME.message);
         end
     end
 end
