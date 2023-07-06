@@ -22,7 +22,7 @@ Model.occLength = 1000;
 %% create Model
 
 % from function createModel_mrdsl_Article createModel_mrdsl_2
-Model = createModel_mrdsl_2(Model);
+Model = createModel_mrdsl_1(Model);
 
 % robotCount
 robotCount = Model.robotCount;
