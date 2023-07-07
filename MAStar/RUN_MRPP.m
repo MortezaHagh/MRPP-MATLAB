@@ -74,32 +74,6 @@ tot_operation_time = sum([sol.len]);
 %% paths collision check
 collisionsCheck(paths, robot_count)
 
-%% Astar with path modification
-% for nr=1:robot_count
-%     mpath = modifyPath (model, paths(nr));
-%     msol(nr).n = nr;
-%     msol(nr).dirs = mpath.dirs;
-%     msol(nr).nodes = mpath.nodes;
-%     msol(nr).coords = mpath.coords;
-%     msol(nr).x = msol(nr).coords(:,1);
-%     msol(nr).y = msol(nr).coords(:,2);
-%     msol(nr).smoothness = calSmoothness(msol(nr).coords);
-%     [msol(nr).cost, msol(nr).solChar] = calCostLinear(model, msol(nr).coords);
-% end
-%
-% % Msol total cost & smoothness & pTime
-% total_pTime_m = toc;
-% total_cost_m = sum([msol.cost]);
-% total_smoothness_m = sum([msol.smoothness]);
-
-%% display data & plot solution
-% display data
-% disp(['total_cost = ' num2str(round(total_cost,2))])
-% disp(['total_pTime: ' num2str(round(total_pTime,3))])
-% disp(['total_smoothness = ' num2str(total_smoothness)])
-% disp(['max operation time = ' num2str(max_operation_time)])
-% disp(['tot operation time = ' num2str(tot_operation_time)])
-
 disp(num2str(round(total_cost, 2)))
 disp(num2str(round(total_pTime, 3)))
 disp(num2str(total_smoothness))
