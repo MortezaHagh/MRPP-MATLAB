@@ -8,7 +8,7 @@ function neighbors = neighbors8(topnode, closed, model, nr)
     nc = 0; % neighbors.count
 
     dxdy = [1 0; 1 1; 0 1; -1 1; -1 0; -1 -1; 0 -1; 1 -1];
-    dirs = [0, 45, 90, 135, 180, 225, 270, 315];
+    dirs = [0, pi / 4, pi / 2, 3 * pi / 4, pi, 5 * pi / 4, 3 * pi / 2, 7 * pi / 4];
 
     for k = 1:8
         i = dxdy(k, 1);

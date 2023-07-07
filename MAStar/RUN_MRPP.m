@@ -17,7 +17,6 @@ model.adj_type = '8adj'; % euclidean manhattan;
 % create model
 % createModel_mh_1 createModel_mh_2 createModel_mh_ctest
 model = createModel_mh_ctest(model);
-% load m12x12_obst_50_r_35_20; % 14 20
 model.msc = 100;
 
 % % 45r_2
@@ -72,8 +71,10 @@ max_operation_time = max([sol.len]);
 tot_operation_time = sum([sol.len]);
 
 %% paths collision check
+% collision check
 collisionsCheck(paths, robot_count)
 
+% disp data
 disp(num2str(round(total_cost, 2)))
 disp(num2str(round(total_pTime, 3)))
 disp(num2str(total_smoothness))
@@ -84,10 +85,10 @@ disp(num2str(tot_operation_time))
 %    disp(sol(i))
 % end
 
-% plot solution
-% plotModel(model)
-% Color = hsv(robot_count);
-% plotSolution(sol, model, Color)      % plot paths
+% % plot solution
+plotModel(model)
+Color = hsv(robot_count);
+plotSolution(sol, model, Color) % plot paths
 % plotAnimation_1(sol, model, Color)    % animated points and paths, in turn.
 % plotAnimation_2(sol, model, Color)      % animated points with tale! concurrent.
 % plotAnimation_3(sol, model, Color)    % animated points and paths, concurrent.

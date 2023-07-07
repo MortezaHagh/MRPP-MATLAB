@@ -12,9 +12,9 @@ addpath('..\common');
 addpath('..\models');
 
 %% settings
-Model.expandMethod = 'heading';  % random or heading
-Model.distType = 'manhattan';    % euclidean or manhattan;
-Model.adjType = '4adj';          % 4adj or 8adj
+Model.expandMethod = 'heading'; % random or heading
+Model.distType = 'manhattan'; % euclidean or manhattan;
+Model.adjType = '4adj'; % 4adj or 8adj
 
 % number of occupant nodes on fined path
 Model.occLength = 1000;
@@ -33,16 +33,17 @@ robotCount = Model.robotCount;
 %% MRPP
 tic
 [Model, Robots, Paths] = myMRDstarLite(Model);
-run_time=toc;
+run_time = toc;
 Sol = Paths;
-for iRobot=1:robotCount
-    Sol(iRobot).x = Sol(iRobot).coords(:,1);
-    Sol(iRobot).y = Sol(iRobot).coords(:,2);
+
+for iRobot = 1:robotCount
+    Sol(iRobot).x = Sol(iRobot).coords(:, 1);
+    Sol(iRobot).y = Sol(iRobot).coords(:, 2);
     Sol(iRobot).cost = calCostL(Sol(iRobot).coords);
     Sol(iRobot).len = numel(Sol(iRobot).nodeNumbers);
     Sol(iRobot).makespan = numel(Sol(iRobot).nodeNumbers);
     Sol(iRobot).smoothness = calSmoothnessByDir(Sol(iRobot));
-    
+
 end
 
 % sol total cost & smoothness & pTime
@@ -59,14 +60,14 @@ collisionsCheck(Paths, robotCount)
 % display data
 disp(['makespan = ' num2str(makespan)])
 disp(['sum_of_costs = ' num2str(sum_of_costs)])
-disp(['total_cost = ' num2str(round(total_cost,2))])
+disp(['total_cost = ' num2str(round(total_cost, 2))])
 disp(['total_smoothness = ' num2str(total_smoothness)])
-disp(['total_runTime: ' num2str(round(total_runTime,3))])
+disp(['total_runTime: ' num2str(round(total_runTime, 3))])
 
 % plot solution
 Color = hsv(robotCount);
 plotModelMulti(Model)
-plotSolution(Sol, Model, Color)      % plot paths
+plotSolution(Sol, Model, Color) % plot paths
 % plotAnimation_1(Sol, Model, Color)    % animated points and paths, in turn.
 % plotAnimation_2(Sol, Model, Color)      % animated points with tale! concurrent.
 % plotAnimation_3(Sol, Model, Color)    % animated points and paths, concurrent.

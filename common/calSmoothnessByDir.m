@@ -6,9 +6,7 @@ function smoothness = calSmoothnessByDir(sol)
     sol.dirs(stall) = [];
 
     theta = sol.dirs;
-    theta = deg2rad(theta);
     dTheta = angdiff(theta);
-    dTheta = rad2deg(dTheta);
     smoothness = sum(abs(dTheta));
 
 end

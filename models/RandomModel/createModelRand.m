@@ -69,7 +69,7 @@ function Model = createModelRand(Model, nObst, nRobot)
         Robot(iRobot).ys = yStart(iRobot);
         Robot(iRobot).xt = xTarget(iRobot);
         Robot(iRobot).yt = yTarget(iRobot);
-        Robot(iRobot).dir = double('r'); %randsample([0 90 180 270],1);
+        Robot(iRobot).dir = 0; % deg2rad(randsample([0 90 180 270], 1));
     end
 
     %  start & goal - node numbers

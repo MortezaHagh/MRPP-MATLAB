@@ -14,10 +14,10 @@ function neighbors = neighbors4(topnode, closed, model, nr)
     q2 = [-1 0; 0 1; 0 -1; 1 0];
     q3 = [0 1; 1 0; -1 0; 0 -1];
     q4 = [0 -1; 1 0; -1 0; 0 1];
-    if dir == 0 || dir == 360; qs = q1; end % int32('r') 1
-    if dir == 180 || dir == -180; qs = q2; end % int32('l') 3
-    if dir == 90; qs = q3; end % int32('u') 2
-    if dir == -90 || dir == 270; qs = q4; end % int32('d') 4
+    if dir == 0 || dir == 2 * pi; qs = q1; end % int32('r') 1
+    if dir == pi || dir == -pi; qs = q2; end % int32('l') 3
+    if dir == pi / 2; qs = q3; end % int32('u') 2
+    if dir == -pi / 2 || dir == 3 * pi / 2; qs = q4; end % int32('d') 4
 
     for k = 1:4
         % nn: new node
@@ -25,9 +25,9 @@ function neighbors = neighbors4(topnode, closed, model, nr)
 
         % direction
         if all([i, j] == [1, 0]); nn_dir = 0; end
-        if all([i, j] == [-1, 0]); nn_dir = 180; end
-        if all([i, j] == [0, 1]); nn_dir = 90; end
-        if all([i, j] == [0, -1]); nn_dir = 270; end
+        if all([i, j] == [-1, 0]); nn_dir = pi; end
+        if all([i, j] == [0, 1]); nn_dir = pi / 2; end
+        if all([i, j] == [0, -1]); nn_dir = 3 * pi / 2; end
 
         nn_x = x + i;
         nn_y = y + j;
