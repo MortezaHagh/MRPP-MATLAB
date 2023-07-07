@@ -1,4 +1,4 @@
-function [closed, open, topnodes, Robots, paths, closed_init] = initialization_mh(Model)
+function [closed, open, topnodes, Robots, paths, closed_init] = initializationMh(Model)
 
     % Initialization and Parameters
 
@@ -8,33 +8,33 @@ function [closed, open, topnodes, Robots, paths, closed_init] = initialization_m
 
     % robots
     Robots = Model.Robots;
-    robot_count = Model.robot_count;
+    robotCount = Model.robotCount;
 
     % closed structure
     cemp.count = 0;
     cemp.nodeNumbers = [];
-    closed = repmat(cemp, robot_count, 1);
+    closed = repmat(cemp, robotCount, 1);
 
     % open structure
     oemp.count = 0;
     oemp.List = [];
-    open = repmat(oemp, robot_count, 1);
+    open = repmat(oemp, robotCount, 1);
 
     % optimal path structure
     p.coords = [];
     p.nodeNumbers = [];
     p.dirs = [];
-    paths = repmat(p, robot_count, 1);
+    paths = repmat(p, robotCount, 1);
 
     %%% initialization
-    for nr = 1:robot_count
+    for nr = 1:robotCount
 
         % closed: put all obstacles on the Closed list
         closed(nr).count = closed(nr).count + num_Of_Obs;
         closed(nr).nodeNumbers = [closed(nr).nodeNumbers, obstNode];
 
         % add target nodes to closed lists
-        %     rv=1:robot_count;
+        %     rv=1:robotCount;
         %     for nnr = rv(rv~=nr)
         %         closed(nnr).count = closed(nnr).count+1;
         %         closed(nnr).nodeNumbers(end+1) = Robots(nr).targetNode;

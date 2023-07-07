@@ -2,8 +2,8 @@ function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
 
     flag = 0;
     flag2 = 1;
-    robot_count = numel(open);
-    rv = 1:robot_count;
+    robotCount = numel(open);
+    rv = 1:robotCount;
     open_top_ind = -1; % 'no path!'
 
     % no_visit: not_visited_id

@@ -3,19 +3,19 @@ function paths = MRPP_3(Model)
     % calculate path just after each reach, with stall node *
 
     % Initialization and Parameters
-    [closed, open, topnodes, robots, paths, closed_init] = initialization_mh(Model);
-    robot_count = Model.robot_count;
-    ot_ind = zeros(robot_count, 1); % open_top_ind
-    np_count = zeros(robot_count, 1); % no_path_count
+    [closed, open, topnodes, robots, paths, closed_init] = initializationMh(Model);
+    robotCount = Model.robotCount;
+    ot_ind = zeros(robotCount, 1); % open_top_ind
+    np_count = zeros(robotCount, 1); % no_path_count
 
     %% Start Algorithm
 
     % defining flags
-    isPath = ones(robot_count, 1); % was pp successful?
-    MissionFlag = true(robot_count, 1); % is pp for robot ended?
+    isPath = ones(robotCount, 1); % was pp successful?
+    MissionFlag = true(robotCount, 1); % is pp for robot ended?
     % path_complete_flag = MissionFlag;        % was optimal path calculated?
 
-    robot_list = 1:robot_count;
+    robot_list = 1:robotCount;
     success = false;
     ttt = 0;
 
@@ -25,7 +25,7 @@ function paths = MRPP_3(Model)
             priority_list = priority(robots, robot_list, Model, [topnodes.nodeNumber]);
 
             for nr = priority_list
-                %     for nr=1:robot_count
+                %     for nr=1:robotCount
 
                 % update mission flag
                 %         MissionFlag(nr) = (topnodes(nr).nodeNumber~=robots(nr).targetNode && isPath(nr) == 1);
@@ -82,7 +82,7 @@ function paths = MRPP_3(Model)
 
         end
 
-        [t, robo] = collisionsCheck2(paths, robot_count);
+        [t, robo] = collisionsCheck2(paths, robotCount);
 
         if robo == 0
             success = true;

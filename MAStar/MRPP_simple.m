@@ -3,20 +3,20 @@ function paths = MRPP_simple(Model)
     % with stall node
 
     % Initialization and Parameters
-    [closed, open, topnodes, robo, paths] = initialization_mh(Model);
+    [closed, open, topnodes, robo, paths] = initializationMh(Model);
 
-    robot_count = Model.robot_count;
-    ot_ind = zeros(robot_count, 1); % open_top_ind
+    robotCount = Model.robotCount;
+    ot_ind = zeros(robotCount, 1); % open_top_ind
 
     %% Start Algorithm
 
     % defining flags
-    isPath = ones(robot_count, 1); % was pp successful?
-    MissionFlag = true(robot_count, 1); % is pp for robot ended?
+    isPath = ones(robotCount, 1); % was pp successful?
+    MissionFlag = true(robotCount, 1); % is pp for robot ended?
 
     while any(MissionFlag)
 
-        for nr = 1:robot_count
+        for nr = 1:robotCount
 
             % update mission flag
             MissionFlag(nr) = (topnodes(nr).nodeNumber ~= robo(nr).targetNode && isPath(nr) == 1);
@@ -56,7 +56,7 @@ function paths = MRPP_simple(Model)
     end
 
     %% Optimal Path
-    for nr = 1:robot_count
+    for nr = 1:robotCount
         paths(nr) = optimalPath_simple(Model, open(nr), isPath, nr);
     end
 

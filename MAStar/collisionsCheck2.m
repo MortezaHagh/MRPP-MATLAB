@@ -1,20 +1,20 @@
-function [t, robo] = collisionsCheck2(paths, robot_count)
+function [t, robo] = collisionsCheck2(paths, robotCount)
 
     t = 0;
     robo = 0;
 
-    pl = zeros(1, robot_count);
+    pl = zeros(1, robotCount);
 
-    for j = 1:robot_count
+    for j = 1:robotCount
         pl(j) = numel(paths(j).nodeNumbers);
     end
 
     [~, ind] = sort(pl, 'descend');
 
     % collision check
-    for i = 1:robot_count - 1
+    for i = 1:robotCount - 1
 
-        for j = i + 1:robot_count
+        for j = i + 1:robotCount
             jl = pl(ind(j));
             il = pl(ind(i));
 

@@ -5,7 +5,7 @@ function Model = createModel_2(Model)
     msc = 10;
 
     %% robots
-    robot_count = 10;
+    robotCount = 10;
 
     % dir: direction
     Robots(1).dir = 0;
@@ -161,7 +161,7 @@ function Model = createModel_2(Model)
             Nodes.number(1, k) = k; % node number
             Nodes.cost(1, k) = 0;
 
-            for nr = 1:robot_count
+            for nr = 1:robotCount
 
                 if i == Robots(nr).xs && j == Robots(nr).ys
                     Robots(nr).startNode = k; % start node number
@@ -208,13 +208,13 @@ function Model = createModel_2(Model)
     Obsts.nodeNumber = obstNode;
     Obsts.r = obst_r;
 
-    Model.robotCount = robot_count;
+    Model.robotCount = robotCount;
 
     Model.Map = Map;
     Model.Obsts = Obsts;
 
     %% save Model
-    Model.robot_count = robot_count;
+    Model.robotCount = robotCount;
     Model.obstNode = obstNode;
     Model.xc = xc; Model.yc = yc;
     Model.numOfObs = numel(xc);

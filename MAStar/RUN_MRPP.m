@@ -26,7 +26,7 @@ Model.msc = 100;
 % Model.Robots(26).xt = 9;
 % Model.Robots(26).yt = 1;
 
-robot_count = Model.robot_count;
+robotCount = Model.robotCount;
 
 %% Preallocation
 % empty sol char structure
@@ -46,7 +46,7 @@ empS.x = [];
 empS.y = [];
 empS.n = 0;
 
-% sol = repmat(empS, robot_count, 1);
+% sol = repmat(empS, robotCount, 1);
 
 %% Astar MRPP
 %   MRPP_2    MRPP_1     MRPP_simple
@@ -55,7 +55,7 @@ paths = MRPP_2(Model);
 pTime = toc;
 sol = paths;
 
-for nr = 1:robot_count
+for nr = 1:robotCount
     sol(nr).n = nr;
     sol(nr).len = numel(sol(nr).nodeNumbers);
     sol(nr).x = sol(nr).coords(:, 1);
@@ -74,7 +74,7 @@ tot_operation_time = sum([sol.len]);
 
 %% paths collision check
 % collision check
-collisionsCheck(paths, robot_count)
+collisionsCheck(paths, robotCount)
 
 % disp data
 disp(['total_cost: ' num2str(round(total_cost, 2))])
@@ -83,13 +83,13 @@ disp(['total_smoothness: ' num2str(total_smoothness)])
 disp(['max_operation_time: ' num2str(max_operation_time)])
 disp(['tot_operation_time: ' num2str(tot_operation_time)])
 
-% for i=1:robot_count
+% for i=1:robotCount
 %    disp(sol(i))
 % end
 
 % % plot solution
 plotModelMulti(Model)
-Color = hsv(robot_count);
+Color = hsv(robotCount);
 plotSolution(sol, Model, Color) % plot paths
 % plotAnimation_1(sol, Model, Color)    % animated points and paths, in turn.
 % plotAnimation_2(sol, Model, Color)      % animated points with tale! concurrent.
