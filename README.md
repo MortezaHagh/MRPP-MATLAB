@@ -22,6 +22,8 @@ Including heuristic search and incremental heuristic search methods.
 
 - Go into the methods directory.
 - Run the **RUN_[Methods_name].m** file.
+  - MAStar/RUN_MAStar.m
+
 
 ## General
 
