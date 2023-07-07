@@ -8,123 +8,123 @@ function Model = createModel_mh_2(Model)
     robot_count = 15;
 
     % dir: direction
-    robo(1).dir = 0;
-    robo(2).dir = -pi;
-    robo(3).dir = -pi;
-    robo(4).dir = pi/2;
-    robo(5).dir = pi/2;
-    robo(6).dir = pi/2;
-    robo(7).dir = 0;
-    robo(8).dir = pi/2;
-    robo(9).dir = -pi/2;
-    robo(10).dir = 0;
-    robo(11).dir = pi/2;
-    robo(12).dir = pi/2;
-    robo(13).dir = pi/2;
-    robo(14).dir = pi/2;
-    robo(15).dir = pi/2;
-    robo(16).dir = pi/2;
-    robo(17).dir = pi/2;
-    robo(18).dir = pi/2;
-    robo(19).dir = -pi/2;
-    robo(20).dir = -pi/2;
-    robo(21).dir = -pi/2;
-    robo(22).dir = 0;
-    robo(23).dir = pi/2;
-    robo(24).dir = pi/2;
-    robo(25).dir = pi/2;
-    robo(26).dir = pi/2;
-    robo(27).dir = pi/2;
-    robo(28).dir = pi/2;
-    robo(29).dir = pi/2;
+    Robots(1).dir = 0;
+    Robots(2).dir = -pi;
+    Robots(3).dir = -pi;
+    Robots(4).dir = pi/2;
+    Robots(5).dir = pi/2;
+    Robots(6).dir = pi/2;
+    Robots(7).dir = 0;
+    Robots(8).dir = pi/2;
+    Robots(9).dir = -pi/2;
+    Robots(10).dir = 0;
+    Robots(11).dir = pi/2;
+    Robots(12).dir = pi/2;
+    Robots(13).dir = pi/2;
+    Robots(14).dir = pi/2;
+    Robots(15).dir = pi/2;
+    Robots(16).dir = pi/2;
+    Robots(17).dir = pi/2;
+    Robots(18).dir = pi/2;
+    Robots(19).dir = -pi/2;
+    Robots(20).dir = -pi/2;
+    Robots(21).dir = -pi/2;
+    Robots(22).dir = 0;
+    Robots(23).dir = pi/2;
+    Robots(24).dir = pi/2;
+    Robots(25).dir = pi/2;
+    Robots(26).dir = pi/2;
+    Robots(27).dir = pi/2;
+    Robots(28).dir = pi/2;
+    Robots(29).dir = pi/2;
 
     % start & goal
-    robo(1).xs = 1; robo(1).ys = 4;
-    robo(1).xt = 21; robo(1).yt = 14;
+    Robots(1).xs = 1; Robots(1).ys = 4;
+    Robots(1).xt = 21; Robots(1).yt = 14;
 
-    robo(2).xs = 25; robo(2).ys = 4;
-    robo(2).xt = 4; robo(2).yt = 14;
+    Robots(2).xs = 25; Robots(2).ys = 4;
+    Robots(2).xt = 4; Robots(2).yt = 14;
 
-    robo(3).xs = 5; robo(3).ys = 7;
-    robo(3).xt = 1; robo(3).yt = 12;
+    Robots(3).xs = 5; Robots(3).ys = 7;
+    Robots(3).xt = 1; Robots(3).yt = 12;
 
-    robo(4).xs = 20; robo(4).ys = 1;
-    robo(4).xt = 5; robo(4).yt = 23;
+    Robots(4).xs = 20; Robots(4).ys = 1;
+    Robots(4).xt = 5; Robots(4).yt = 23;
 
-    robo(5).xs = 5; robo(5).ys = 1;
-    robo(5).xt = 21; robo(5).yt = 23;
+    Robots(5).xs = 5; Robots(5).ys = 1;
+    Robots(5).xt = 21; Robots(5).yt = 23;
 
-    robo(6).xs = 12; robo(6).ys = 1;
-    robo(6).xt = 12; robo(6).yt = 25;
+    Robots(6).xs = 12; Robots(6).ys = 1;
+    Robots(6).xt = 12; Robots(6).yt = 25;
 
-    robo(7).xs = 1; robo(7).ys = 14;
-    robo(7).xt = 12; robo(7).yt = 19;
+    Robots(7).xs = 1; Robots(7).ys = 14;
+    Robots(7).xt = 12; Robots(7).yt = 19;
 
-    robo(8).xs = 2; robo(8).ys = 19;
-    robo(8).xt = 24; robo(8).yt = 19;
+    Robots(8).xs = 2; Robots(8).ys = 19;
+    Robots(8).xt = 24; Robots(8).yt = 19;
 
-    robo(9).xs = 4; robo(9).ys = 19;
-    robo(9).xt = 21; robo(9).yt = 19;
+    Robots(9).xs = 4; Robots(9).ys = 19;
+    Robots(9).xt = 21; Robots(9).yt = 19;
 
-    robo(10).xs = 1; robo(10).ys = 16;
-    robo(10).xt = 25; robo(10).yt = 16;
+    Robots(10).xs = 1; Robots(10).ys = 16;
+    Robots(10).xt = 25; Robots(10).yt = 16;
 
-    robo(11).xs = 8; robo(11).ys = 1;
-    robo(11).xt = 8; robo(11).yt = 25;
+    Robots(11).xs = 8; Robots(11).ys = 1;
+    Robots(11).xt = 8; Robots(11).yt = 25;
 
-    robo(12).xs = 17; robo(12).ys = 1;
-    robo(12).xt = 17; robo(12).yt = 24;
+    Robots(12).xs = 17; Robots(12).ys = 1;
+    Robots(12).xt = 17; Robots(12).yt = 24;
 
-    robo(13).xs = 1; robo(13).ys = 11;
-    robo(13).xt = 24; robo(13).yt = 14;
+    Robots(13).xs = 1; Robots(13).ys = 11;
+    Robots(13).xt = 24; Robots(13).yt = 14;
 
-    robo(14).xs = 15; robo(14).ys = 4;
-    robo(14).xt = 6; robo(14).yt = 19;
+    Robots(14).xs = 15; Robots(14).ys = 4;
+    Robots(14).xt = 6; Robots(14).yt = 19;
 
-    robo(15).xs = 2; robo(15).ys = 1;
-    robo(15).xt = 25; robo(15).yt = 23;
+    Robots(15).xs = 2; Robots(15).ys = 1;
+    Robots(15).xt = 25; Robots(15).yt = 23;
 
-    robo(16).xs = 24; robo(16).ys = 1;
-    robo(16).xt = 1; robo(16).yt = 24;
+    Robots(16).xs = 24; Robots(16).ys = 1;
+    Robots(16).xt = 1; Robots(16).yt = 24;
 
-    robo(17).xs = 6; robo(17).ys = 9;
-    robo(17).xt = 17; robo(17).yt = 14;
+    Robots(17).xs = 6; Robots(17).ys = 9;
+    Robots(17).xt = 17; Robots(17).yt = 14;
 
-    robo(18).xs = 21; robo(18).ys = 4;
-    robo(18).xt = 6; robo(18).yt = 14;
+    Robots(18).xs = 21; Robots(18).ys = 4;
+    Robots(18).xt = 6; Robots(18).yt = 14;
 
-    robo(19).xs = 25; robo(19).ys = 18;
-    robo(19).xt = 10; robo(19).yt = 14;
+    Robots(19).xs = 25; Robots(19).ys = 18;
+    Robots(19).xt = 10; Robots(19).yt = 14;
 
-    robo(20).xs = 10; robo(20).ys = 1;
-    robo(20).xt = 10; robo(20).yt = 19;
+    Robots(20).xs = 10; Robots(20).ys = 1;
+    Robots(20).xt = 10; Robots(20).yt = 19;
 
-    robo(21).xs = 4; robo(21).ys = 1;
-    robo(21).xt = 4; robo(21).yt = 25;
+    Robots(21).xs = 4; Robots(21).ys = 1;
+    Robots(21).xt = 4; Robots(21).yt = 25;
 
-    robo(22).xs = 10; robo(22).ys = 9;
-    robo(22).xt = 24; robo(22).yt = 9;
+    Robots(22).xs = 10; Robots(22).ys = 9;
+    Robots(22).xt = 24; Robots(22).yt = 9;
 
-    robo(23).xs = 17; robo(23).ys = 4;
-    robo(23).xt = 15; robo(23).yt = 23;
+    Robots(23).xs = 17; Robots(23).ys = 4;
+    Robots(23).xt = 15; Robots(23).yt = 23;
 
-    robo(24).xs = 21; robo(24).ys = 9;
-    robo(24).xt = 17; robo(24).yt = 19;
+    Robots(24).xs = 21; Robots(24).ys = 9;
+    Robots(24).xt = 17; Robots(24).yt = 19;
 
-    robo(25).xs = 13; robo(25).ys = 1;
-    robo(25).xt = 13; robo(25).yt = 23;
+    Robots(25).xs = 13; Robots(25).ys = 1;
+    Robots(25).xt = 13; Robots(25).yt = 23;
 
-    robo(26).xs = 17; robo(26).ys = 9;
-    robo(26).xt = 15; robo(26).yt = 19;
+    Robots(26).xs = 17; Robots(26).ys = 9;
+    Robots(26).xt = 15; Robots(26).yt = 19;
 
-    robo(27).xs = 19; robo(27).ys = 9;
-    robo(27).xt = 11; robo(27).yt = 23;
+    Robots(27).xs = 19; Robots(27).ys = 9;
+    Robots(27).xt = 11; Robots(27).yt = 23;
 
-    robo(28).xs = 22; robo(28).ys = 1;
-    robo(28).xt = 6; robo(28).yt = 25;
+    Robots(28).xs = 22; Robots(28).ys = 1;
+    Robots(28).xt = 6; Robots(28).yt = 25;
 
-    robo(29).xs = 1; robo(29).ys = 21;
-    robo(29).xt = 23; robo(29).yt = 11;
+    Robots(29).xs = 1; Robots(29).ys = 21;
+    Robots(29).xt = 23; Robots(29).yt = 11;
 
     %% Area
     limArea = 28;
@@ -163,10 +163,10 @@ function Model = createModel_mh_2(Model)
 
             for nr = 1:robot_count
 
-                if i == robo(nr).xs && j == robo(nr).ys
-                    robo(nr).startNode = k; % start node number
-                elseif i == robo(nr).xt && j == robo(nr).yt
-                    robo(nr).targetNode = k; % target (final) node number
+                if i == Robots(nr).xs && j == Robots(nr).ys
+                    Robots(nr).startNode = k; % start node number
+                elseif i == Robots(nr).xt && j == Robots(nr).yt
+                    Robots(nr).targetNode = k; % target (final) node number
                 end
 
             end
@@ -204,7 +204,7 @@ function Model = createModel_mh_2(Model)
     Model.yMin = yMin;
     Model.yMax = yMax;
     Model.adj = adj;
-    Model.robo = robo;
+    Model.Robots = Robots;
     Model.msc = msc;
 
 end

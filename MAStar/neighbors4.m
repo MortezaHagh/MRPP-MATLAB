@@ -3,7 +3,7 @@ function neighbors = neighbors4(topnode, closed, Model, nr)
     % node pnode cost_g cost_f dir
 
     xy = Model.Nodes.cord(:, topnode.nodeNumber);
-    robot = Model.robo(nr);
+    robot = Model.Robots(nr);
     dir = topnode.dir;
     x = xy(1);
     y = xy(2);

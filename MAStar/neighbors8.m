@@ -2,7 +2,7 @@ function neighbors = neighbors8(topnode, closed, Model, nr)
     % node pnode cost_g cost_f dir
 
     xy = Model.Nodes.cord(:, topnode.nodeNumber);
-    robot = Model.robo(nr);
+    Robots = Model.Robots(nr);
     x = xy(1);
     y = xy(2);
     nc = 0; % neighbors.count
@@ -35,7 +35,7 @@ function neighbors = neighbors8(topnode, closed, Model, nr)
                     list(nc).nodeNumber = new_node;
                     list(nc).pnode = topnode.nodeNumber;
                     list(nc).cost_g = topnode.cost_g + calDistance(x, y, nn_x, nn_y, Model.dist_type);
-                    cost_h = calDistance(robot.xt, robot.yt, nn_x, nn_y, Model.dist_type) * 2;
+                    cost_h = calDistance(Robots.xt, Robots.yt, nn_x, nn_y, Model.dist_type) * 2;
                     list(nc).cost_f = list(nc).cost_g + cost_h;
                     list(nc).dir = nn_dir;
                     list(nc).time = topnode.time + 1;

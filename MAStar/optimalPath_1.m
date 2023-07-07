@@ -2,7 +2,7 @@ function path = optimalPath_1(Model, open, isPath, nr)
 
     if isPath(nr) == 1
         % starting from the last (target) node
-        path_nodes(1) = Model.robo(nr).targetNode;
+        path_nodes(1) = Model.Robots(nr).targetNode;
         i = 2;
 
         % Traverse Open and determine the parent nodes
@@ -11,7 +11,7 @@ function path = optimalPath_1(Model, open, isPath, nr)
         time = open.list(parent_ind).time;
 
         % going back to start node
-        while parent_node ~= Model.robo(nr).startNode
+        while parent_node ~= Model.Robots(nr).startNode
             time = time - 1;
             path_nodes(i) = parent_node;
             parent_ind = [open.list.nodeNumber] == parent_node ...
@@ -24,7 +24,7 @@ function path = optimalPath_1(Model, open, isPath, nr)
         end
 
     else
-        path_nodes = Model.robo(nr).startNode * [1, 1];
+        path_nodes = Model.Robots(nr).startNode * [1, 1];
         parent_ind = 1;
     end
 
@@ -35,7 +35,7 @@ function path = optimalPath_1(Model, open, isPath, nr)
         disp('')
     end
 
-    path.nodeNumbers = [Model.robo(nr).startNode * ssc, flip(path_nodes)];
+    path.nodeNumbers = [Model.Robots(nr).startNode * ssc, flip(path_nodes)];
     path.coords = nodes2coords(path.nodeNumbers, Model);
     path.dirs = nodes2dirs(path.nodeNumbers, Model);
 

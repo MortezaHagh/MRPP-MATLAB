@@ -102,7 +102,7 @@ function Model = createModelFromMap(MapInput, Model)
             end
 
         else
-            GV(iNode).robot = -1;
+            GV(iNode).Robots = -1;
         end
 
     end

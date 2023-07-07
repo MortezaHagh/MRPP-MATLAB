@@ -8,19 +8,19 @@ function Model = createModel_mh_1(Model)
     robot_count = 3;
 
     % dir: direction
-    robo(1).dir = -pi/2;
-    robo(2).dir = -pi/2;
-    robo(3).dir = -pi/2;
+    Robot(randsample([0 90 180 270], 1));(1).dir = -pi/2;
+    Robot(randsample([0 90 180 270], 1));(2).dir = -pi/2;
+    Robot(randsample([0 90 180 270], 1));(3).dir = -pi/2;
 
     % start & goal
-    robo(1).xs = 1; robo(1).ys = 4;
-    robo(1).xt = 21; robo(1).yt = 14;
+    Robot(randsample([0 90 180 270], 1));(1).xs = 1; Robot(randsample([0 90 180 270], 1));(1).ys = 4;
+    Robot(randsample([0 90 180 270], 1));(1).xt = 21; Robot(randsample([0 90 180 270], 1));(1).yt = 14;
 
-    robo(2).xs = 25; robo(2).ys = 4;
-    robo(2).xt = 4; robo(2).yt = 14;
+    Robot(randsample([0 90 180 270], 1));(2).xs = 25; Robot(randsample([0 90 180 270], 1));(2).ys = 4;
+    Robot(randsample([0 90 180 270], 1));(2).xt = 4; Robot(randsample([0 90 180 270], 1));(2).yt = 14;
 
-    robo(3).xs = 5; robo(3).ys = 7;
-    robo(3).xt = 1; robo(3).yt = 12;
+    Robot(randsample([0 90 180 270], 1));(3).xs = 5; Robot(randsample([0 90 180 270], 1));(3).ys = 7;
+    Robot(randsample([0 90 180 270], 1));(3).xt = 1; Robot(randsample([0 90 180 270], 1));(3).yt = 12;
 
     %% Area
     limArea = 28;
@@ -59,10 +59,10 @@ function Model = createModel_mh_1(Model)
 
             for nr = 1:robot_count
 
-                if i == robo(nr).xs && j == robo(nr).ys
-                    robo(nr).startNode = k; % start node number
-                elseif i == robo(nr).xt && j == robo(nr).yt
-                    robo(nr).targetNode = k; % target (final) node number
+                if i == Robot(randsample([0 90 180 270], 1));(nr).xs && j == Robot(randsample([0 90 180 270], 1));(nr).ys
+                    Robot(randsample([0 90 180 270], 1));(nr).startNode = k; % start node number
+                elseif i == Robot(randsample([0 90 180 270], 1));(nr).xt && j == Robot(randsample([0 90 180 270], 1));(nr).yt
+                    Robot(randsample([0 90 180 270], 1));(nr).targetNode = k; % target (final) node number
                 end
 
             end
@@ -121,7 +121,7 @@ function Model = createModel_mh_1(Model)
     Model.yMin = yMin;
     Model.yMax = yMax;
     Model.adj = adj;
-    Model.robo = robo;
+    Model.Robots(randsample([0 90 180 270], 1)); = Robot(randsample([0 90 180 270], 1));;
     Model.msc = msc;
 
 end

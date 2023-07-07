@@ -155,7 +155,7 @@ function Model = createModel_mrdsl_1(Model)
 
     %% save Model
     Model.Nodes = Nodes;
-    Model.Robot = Robot;
+    Model.Robots = Robot;
     Model.Obsts = Obsts;
     Model.Map = Map;
 

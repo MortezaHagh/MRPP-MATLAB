@@ -94,11 +94,11 @@ function paths = MRPP_3(Model)
 
             % set the starting node (topnode) as the first node in Open
             topnode.visited = 1;
-            topnode.nodeNumber = Model.robo(robo).startNode;
-            topnode.pnode = Model.robo(robo).startNode;
-            topnode.dir = Model.robo(robo).dir;
+            topnode.nodeNumber = Model.Robots(robo).startNode;
+            topnode.pnode = Model.Robots(robo).startNode;
+            topnode.dir = Model.Robots(robo).dir;
             topnode.cost_g = 0;
-            cost_h = calDistance(Model.robo(robo).xs, Model.robo(robo).ys, Model.robo(robo).xt, Model.robo(robo).yt, Model.dist_type) * 2;
+            cost_h = calDistance(Model.Robots(robo).xs, Model.Robots(robo).ys, Model.Robots(robo).xt, Model.Robots(robo).yt, Model.dist_type) * 2;
             topnode.cost_f = topnode.cost_g + cost_h;
             topnode.time = 0;
             topnode.tag = 1;

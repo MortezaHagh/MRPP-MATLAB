@@ -27,21 +27,21 @@ function Model = createModelFromExcel(Model)
     r.targetNode = 0;
     r.startNode = 0;
 
-    Robot = repmat(r, robotCount, 1);
+    Robots = repmat(r, robotCount, 1);
 
     for iRobot = 1:robotCount
         j = iRobot + 6;
-        Robot(iRobot).xs = data(1, j);
-        Robot(iRobot).ys = data(2, j);
-        Robot(iRobot).xt = data(3, j);
-        Robot(iRobot).yt = data(4, j);
-        Robot(iRobot).dir = data(5, j);
+        Robots(iRobot).xs = data(1, j);
+        Robots(iRobot).ys = data(2, j);
+        Robots(iRobot).xt = data(3, j);
+        Robots(iRobot).yt = data(4, j);
+        Robots(iRobot).dir = data(5, j);
     end
 
     %  start & goal - node numbers
     for iRobot = 1:robotCount
-        Robot(iRobot).startNode = (Robot(iRobot).ys - Map.yMin) * (Map.xMax - Map.xMin + 1) + Robot(iRobot).xs - Map.xMin + 1;
-        Robot(iRobot).targetNode = (Robot(iRobot).yt - Map.yMin) * (Map.xMax - Map.xMin + 1) + Robot(iRobot).xt - Map.xMin + 1;
+        Robots(iRobot).startNode = (Robots(iRobot).ys - Map.yMin) * (Map.xMax - Map.xMin + 1) + Robots(iRobot).xs - Map.xMin + 1;
+        Robots(iRobot).targetNode = (Robots(iRobot).yt - Map.yMin) * (Map.xMax - Map.xMin + 1) + Robots(iRobot).xt - Map.xMin + 1;
     end
 
     %% Obstacle
@@ -159,7 +159,7 @@ function Model = createModelFromExcel(Model)
 
     %% save Model
     Model.Nodes = Nodes;
-    Model.Robot = Robot;
+    Model.Robots = Robots;
     Model.Obst2 = Obst2;
     Model.Obsts = Obsts;
     Model.Map = Map;

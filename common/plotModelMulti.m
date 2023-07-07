@@ -6,7 +6,7 @@ function plotModelMulti(Model)
     yMax = Model.Map.yMax;
     obstX = Model.Obsts.x;
     obstY = Model.Obsts.y;
-    Robot = Model.Robot;
+    Robot = Model.Robots;
 
     % figure(1)
     axis([xMin - 3, xMax + 3, yMin - 3, yMax + 3])

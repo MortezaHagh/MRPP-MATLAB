@@ -3,12 +3,12 @@ function isFeasible = checkFeasibility(Model)
     addpath('..\common');
     addpath('..\models');
 
-    Robots = Model.Robot;
+    Robots = Model.Robots;
     isFeasible = true;
 
     % not considering other robots
     for iRobot = 1:Model.robotCount
-        Model.Robot = Robots(iRobot);
+        Model.Robots = Robots(iRobot);
 
         try
             myAStar(Model);
@@ -37,7 +37,7 @@ function isFeasible = checkFeasibility(Model)
 
     for iRobot = 1:Model.robotCount
         Model = Model;
-        Model.Robot = Robots(iRobot);
+        Model.Robots = Robots(iRobot);
         Model.Obsts.nodeNumber(Model.Obsts.count + iRobot) = [];
         Model.Obsts.x(Model.Obsts.count + iRobot) = [];
         Model.Obsts.y(Model.Obsts.count + iRobot) = [];

@@ -8,19 +8,19 @@ function Model = createModel_mh_ctest(Model)
     robot_count = 3;
 
     % dir: direction
-    robo(1).dir = -pi/2;
-    robo(2).dir = -pi/2;
-    robo(3).dir = -pi/2;
+    Robots(1).dir = -pi/2;
+    Robots(2).dir = -pi/2;
+    Robots(3).dir = -pi/2;
 
     % start & goal
-    robo(1).xs = 1; robo(1).ys = 0;
-    robo(1).xt = 0; robo(1).yt = 3;
+    Robots(1).xs = 1; Robots(1).ys = 0;
+    Robots(1).xt = 0; Robots(1).yt = 3;
 
-    robo(2).xs = -1; robo(2).ys = 0;
-    robo(2).xt = 1; robo(2).yt = 3;
+    Robots(2).xs = -1; Robots(2).ys = 0;
+    Robots(2).xt = 1; Robots(2).yt = 3;
 
-    robo(3).xs = 0; robo(3).ys = -1;
-    robo(3).xt = 1; robo(3).yt = 4;
+    Robots(3).xs = 0; Robots(3).ys = -1;
+    Robots(3).xt = 1; Robots(3).yt = 4;
 
     %% Area
     limArea = 4;
@@ -51,10 +51,10 @@ function Model = createModel_mh_ctest(Model)
 
             for nr = 1:robot_count
 
-                if i == robo(nr).xs && j == robo(nr).ys
-                    robo(nr).startNode = k; % start node number
-                elseif i == robo(nr).xt && j == robo(nr).yt
-                    robo(nr).targetNode = k; % target (final) node number
+                if i == Robots(nr).xs && j == Robots(nr).ys
+                    Robots(nr).startNode = k; % start node number
+                elseif i == Robots(nr).xt && j == Robots(nr).yt
+                    Robots(nr).targetNode = k; % target (final) node number
                 end
 
             end
@@ -92,7 +92,7 @@ function Model = createModel_mh_ctest(Model)
     Model.yMin = yMin;
     Model.yMax = yMax;
     Model.adj = adj;
-    Model.robo = robo;
+    Model.Robots = Robots;
     Model.msc = msc;
 
 end

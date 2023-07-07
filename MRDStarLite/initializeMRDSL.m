@@ -7,7 +7,7 @@ function [GV, Open, Robots, Paths, nodesToUpdate] = initializeMRDSL(Model)
     RHS = Model.RHS;
 
     % robots
-    Robots = Model.Robot;
+    Robots = Model.Robots;
     robotCount = Model.robotCount;
 
     % topnode structure

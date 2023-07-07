@@ -20,9 +20,9 @@ Model = createModel_mh_1(Model);
 Model.msc = 100;
 
 % % 45r_2
-% Model.robo(26).targetNode = 21;
-% Model.robo(26).xt = 9;
-% Model.robo(26).yt = 1;
+% Model.Robots(26).targetNode = 21;
+% Model.Robots(26).xt = 9;
+% Model.Robots(26).yt = 1;
 
 robot_count = Model.robot_count;
 

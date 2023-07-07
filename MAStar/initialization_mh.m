@@ -1,4 +1,4 @@
-function [closed, open, topnodes, robo, paths, closed_init] = initialization_mh(Model)
+function [closed, open, topnodes, Robots, paths, closed_init] = initialization_mh(Model)
 
     % Initialization and Parameters
 
@@ -7,7 +7,7 @@ function [closed, open, topnodes, robo, paths, closed_init] = initialization_mh(
     num_Of_Obs = Model.numOfObs;
 
     % robots
-    robo = Model.robo;
+    Robots = Model.Robots;
     robot_count = Model.robot_count;
 
     % closed structure
@@ -37,16 +37,16 @@ function [closed, open, topnodes, robo, paths, closed_init] = initialization_mh(
         %     rv=1:robot_count;
         %     for nnr = rv(rv~=nr)
         %         closed(nnr).count = closed(nnr).count+1;
-        %         closed(nnr).nodeNumbers(end+1) = robo(nr).targetNode;
+        %         closed(nnr).nodeNumbers(end+1) = Robots(nr).targetNode;
         %     end
 
         % set the starting node (topnode) as the first node in Open
         topnode.visited = 1;
-        topnode.nodeNumber = robo(nr).startNode;
-        topnode.pnode = robo(nr).startNode;
-        topnode.dir = robo(nr).dir;
+        topnode.nodeNumber = Robots(nr).startNode;
+        topnode.pnode = Robots(nr).startNode;
+        topnode.dir = Robots(nr).dir;
         topnode.cost_g = 0;
-        cost_h = calDistance(robo(nr).xs, robo(nr).ys, robo(nr).xt, robo(nr).yt, Model.dist_type) * 2;
+        cost_h = calDistance(Robots(nr).xs, Robots(nr).ys, Robots(nr).xt, Robots(nr).yt, Model.dist_type) * 2;
         topnode.cost_f = topnode.cost_g + cost_h;
         topnode.time = 0;
         topnode.tag = 1;
