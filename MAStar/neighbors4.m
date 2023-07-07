@@ -2,7 +2,7 @@ function neighbors = neighbors4(topnode, closed, Model, nr)
     % arrange neighbors based on robot direction
     % node pnode cost_g cost_f dir
 
-    xy = Model.nodes.cord(:, topnode.node);
+    xy = Model.Nodes.cord(:, topnode.node);
     robot = Model.robo(nr);
     dir = topnode.dir;
     x = xy(1);

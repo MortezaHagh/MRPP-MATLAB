@@ -1,7 +1,7 @@
 function neighbors = neighbors8(topnode, closed, Model, nr)
     % node pnode cost_g cost_f dir
 
-    xy = Model.nodes.cord(:, topnode.node);
+    xy = Model.Nodes.cord(:, topnode.node);
     robot = Model.robo(nr);
     x = xy(1);
     y = xy(2);

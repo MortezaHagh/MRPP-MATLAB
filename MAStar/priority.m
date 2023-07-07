@@ -4,8 +4,8 @@ function sorted_list = priority(robots, robot_list, Model, nodes)
     j = 1;
 
     for i = robot_list
-        xyp = Model.nodes.cord(:, nodes(i));
-        xyt = Model.nodes.cord(:, robots(i).targetNode);
+        xyp = Model.Nodes.cord(:, nodes(i));
+        xyt = Model.Nodes.cord(:, robots(i).targetNode);
         h(j) = calDistance(xyp(1), xyp(2), xyt(1), xyt(2), Model.dist_type);
         j = j + 1;
     end
