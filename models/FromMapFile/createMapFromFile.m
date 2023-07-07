@@ -1,6 +1,6 @@
 function [Map, map_name] = createMapFromFile(path)
     % read map data given in text format
-    % open nodes specified with '.'
+    % Open nodes specified with '.'
 
     map_name = 'map1';
 

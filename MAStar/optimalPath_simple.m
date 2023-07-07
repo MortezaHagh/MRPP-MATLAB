@@ -1,4 +1,4 @@
-function path = optimalPath_simple(Model, open, isPath, nr)
+function path = optimalPath_simple(Model, Open, isPath, nr)
 
     path_nodes = Model.Robots(nr).startNode * [1, 1];
     parent_ind = 1;
@@ -9,14 +9,14 @@ function path = optimalPath_simple(Model, open, isPath, nr)
         i = 2;
 
         % Traverse Open and determine the parent nodes
-        parent_ind = [open.List.nodeNumber] == path_nodes(1);
-        parent_node = open.List(parent_ind).pNode;
+        parent_ind = [Open.List.nodeNumber] == path_nodes(1);
+        parent_node = Open.List(parent_ind).pNode;
 
         % going back to start node
         while parent_node ~= Model.Robots(nr).startNode
             path_nodes(i) = parent_node;
-            parent_ind = [open.List.nodeNumber] == parent_node;
-            parent_node = open.List(parent_ind).pNode;
+            parent_ind = [Open.List.nodeNumber] == parent_node;
+            parent_node = Open.List(parent_ind).pNode;
             i = i + 1;
         end
 

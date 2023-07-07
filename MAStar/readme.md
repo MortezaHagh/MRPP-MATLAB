@@ -5,7 +5,7 @@
 ## MRPP_simple
 
 no cooperation at all: many collisions
-no time in open list
+no time in Open list
 
 #### functions
 
@@ -16,8 +16,8 @@ no time in open list
 
 ## MRPP_1
 
-expand open list by collision consideration
-with time in open list
+expand Open list by collision consideration
+with time in Open list
 stall node is added
 
 #### functions

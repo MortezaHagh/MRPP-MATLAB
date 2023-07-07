@@ -17,7 +17,7 @@ function [Open, Robot] = computeShortestPath(Open, GV, Robot, Model)
         k_old = topNode.key;
         k_new = min(Robot.G(topNode.nodeNumber), Robot.RHS(topNode.nodeNumber)) + [topNode.hCost + Robot.km; 0];
 
-        % remove topkey from open
+        % remove topkey from Open
         Open.List(topNode.ind) = [];
         Open.count = Open.count - 1;
 

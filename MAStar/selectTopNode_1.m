@@ -1,18 +1,18 @@
-function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
+function openTopInd = selectTopNode_1(Open, targetNode, dir, nr)
 
     flag = 0;
     flag2 = 1;
-    robotCount = numel(open);
+    robotCount = numel(Open);
     rv = 1:robotCount;
-    open_top_ind = -1; % 'no path!'
+    openTopInd = -1; % 'no path!'
 
     % no_visit: not_visited_id
-    no_visit = [open(nr).List.visited] ~= 1;
+    no_visit = [Open(nr).List.visited] ~= 1;
     snv = sum(no_visit);
 
     if snv > 0
-        candids = [[open(nr).List(no_visit).fCost];
-                    abs(angleDiff([open(nr).List(no_visit).dir], dir));
+        candids = [[Open(nr).List(no_visit).fCost];
+                    abs(angleDiff([Open(nr).List(no_visit).dir], dir));
                     rand(1, snv);
                     find(no_visit)]';
 
@@ -20,14 +20,14 @@ function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
         candids_count = numel(ind_candids);
 
         for k = 1:candids_count
-            open_top_ind = candids(ind_candids(k), end);
+            openTopInd = candids(ind_candids(k), end);
             flag = 1;
 
             for nnr = rv(rv ~= nr)
                 % check for collision type 2 (angle_diff + pi) % (2*pi) - pi
-                coll2 = [open(nnr).List.visited] == 1 & [open(nnr).List.pNode] == open(nr).List(open_top_ind).nodeNumber ...
-                    & [open(nnr).List.nodeNumber] == open(nr).List(open_top_ind).pNode ...
-                    & [open(nnr).List.time] == open(nr).List(open_top_ind).time;
+                coll2 = [Open(nnr).List.visited] == 1 & [Open(nnr).List.pNode] == Open(nr).List(openTopInd).nodeNumber ...
+                    & [Open(nnr).List.nodeNumber] == Open(nr).List(openTopInd).pNode ...
+                    & [Open(nnr).List.time] == Open(nr).List(openTopInd).time;
 
                 if any(coll2)
                     flag = 0;
@@ -35,8 +35,8 @@ function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
                 end
 
                 % check for collision type 1
-                coll1 = [open(nnr).List.visited] == 1 & [open(nnr).List.nodeNumber] == open(nr).List(open_top_ind).nodeNumber ...
-                    & [open(nnr).List.time] == open(nr).List(open_top_ind).time;
+                coll1 = [Open(nnr).List.visited] == 1 & [Open(nnr).List.nodeNumber] == Open(nr).List(openTopInd).nodeNumber ...
+                    & [Open(nnr).List.time] == Open(nr).List(openTopInd).time;
 
                 if any(coll1)
                     flag = 0;
@@ -44,12 +44,12 @@ function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
                 end
 
                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                %             if open(nr).List(open_top_ind).nodeNumber==targetNode
-                %                 tg_id=[open(nnr).List.nodeNumber]==targetNode & [open(nnr).List.visited]==1;
+                %             if Open(nr).List(openTopInd).nodeNumber==targetNode
+                %                 tg_id=[Open(nnr).List.nodeNumber]==targetNode & [Open(nnr).List.visited]==1;
                 %                 if any(tg_id)
                 %                     tg_id = find(tg_id);
                 %                     tg_id = tg_id(end);
-                %                     dt = open(nnr).List(tg_id).time-open(nr).List(open_top_ind).time;
+                %                     dt = Open(nnr).List(tg_id).time-Open(nr).List(openTopInd).time;
                 %                     if dt>0
                 %                         flag=0;
                 %                         % flag2=0;
@@ -73,11 +73,11 @@ function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
     end
 
     if flag == 0 % fail
-        open_top_ind = -1;
+        openTopInd = -1;
     end
 
 end
 
-% tg_nr_id = [open(nr).List.nodeNumber]==targetNode;
+% tg_nr_id = [Open(nr).List.nodeNumber]==targetNode;
 % tg_nr_id = find(tg_nr_id);
 % tg_nr_id = tg_nr_id(end);

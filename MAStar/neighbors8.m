@@ -1,4 +1,4 @@
-function neighbors = neighbors8(topNode, closed, Model, nr)
+function neighbors = neighbors8(topNode, Closed, Model, nr)
     % node pNode gCost fCost dir
 
     xy = Model.Nodes.cord(:, topNode.nodeNumber);
@@ -29,7 +29,7 @@ function neighbors = neighbors8(topNode, closed, Model, nr)
                 new_node = topNode.nodeNumber + i + (j * (Model.xMax - Model.xMin + 1));
 
                 % check if it is in Closed list
-                if ~any(new_node == closed.nodeNumbers)
+                if ~any(new_node == Closed.nodeNumbers)
                     nc = nc + 1;
                     list(nc).visited = 0;
                     list(nc).nodeNumber = new_node;

@@ -1,12 +1,12 @@
 function paths = MRPP_simple(Model)
-    % MAstar, with time in open list
+    % MAstar, with time in Open list
     % with stall node
 
     % Initialization and Parameters
-    [closed, open, topnodes, robo, paths] = initializationMh(Model);
+    [Closed, Open, topnodes, robo, paths] = initializationMh(Model);
 
     robotCount = Model.robotCount;
-    ot_ind = zeros(robotCount, 1); % open_top_ind
+    oTopInd = zeros(robotCount, 1); % openTopInd
 
     %% Start Algorithm
 
@@ -24,26 +24,26 @@ function paths = MRPP_simple(Model)
             if MissionFlag(nr)
 
                 % finding neighbors (successors)
-                neighbors = expand(topnodes(nr), closed(nr), Model, nr);
+                neighbors = expand(topnodes(nr), Closed(nr), Model, nr);
 
                 % if strcmp(Model.adjType, '4adj')
-                %     neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
+                %     neighbors = neighbors4(topnodes(nr), Closed(nr), Model, nr);
                 % elseif strcmp(Model.adjType, '8adj')
-                %     neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
+                %     neighbors = neighbors8(topnodes(nr), Closed(nr), Model, nr);
                 % end
 
-                % update or extend open list with the successor nodes
-                open(nr) = updateOpen(open(nr), neighbors);
+                % update or extend Open list with the successor nodes
+                Open(nr) = updateOpen(Open(nr), neighbors);
 
                 % select new Top Node
-                ot_ind(nr) = selectTopNode_simple(open, robo(nr).targetNode, topnodes(nr).dir, nr);
+                oTopInd(nr) = selectTopNode_simple(Open, robo(nr).targetNode, topnodes(nr).dir, nr);
 
-                % update open & close with new topNode
-                if ot_ind(nr) ~= -1
-                    open(nr).List(ot_ind(nr)).visited = 1;
-                    topnodes(nr) = open(nr).List(ot_ind(nr));
-                    closed(nr).count = closed(nr).count + 1;
-                    closed(nr).nodeNumbers(end + 1) = topnodes(nr).nodeNumber;
+                % update Open & close with new topNode
+                if oTopInd(nr) ~= -1
+                    Open(nr).List(oTopInd(nr)).visited = 1;
+                    topnodes(nr) = Open(nr).List(oTopInd(nr));
+                    Closed(nr).count = Closed(nr).count + 1;
+                    Closed(nr).nodeNumbers(end + 1) = topnodes(nr).nodeNumber;
                 else
                     isPath(nr) = 0;
                     disp(['No Path for robot ' num2str(nr) '!'])
@@ -57,7 +57,7 @@ function paths = MRPP_simple(Model)
 
     %% Optimal Path
     for nr = 1:robotCount
-        paths(nr) = optimalPath_simple(Model, open(nr), isPath, nr);
+        paths(nr) = optimalPath_simple(Model, Open(nr), isPath, nr);
     end
 
 end

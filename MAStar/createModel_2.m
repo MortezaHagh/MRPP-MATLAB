@@ -217,7 +217,7 @@ function Model = createModel_2(Model)
     Model.robotCount = robotCount;
     Model.obstNode = obstNode;
     Model.xc = xc; Model.yc = yc;
-    Model.numOfObs = numel(xc);
+    Model.obstCount = numel(xc);
     Model.limArea = limArea;
     Model.obst_r = obst_r;
     Model.Nodes = Nodes;

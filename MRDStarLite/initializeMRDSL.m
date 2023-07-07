@@ -16,7 +16,7 @@ function [GV, Open, Robots, Paths, nodesToUpdate] = initializeMRDSL(Model)
     topNode.key = 0;
     topNode.ind = 1;
 
-    % open structure
+    % Open structure
     oemp.count = 0;
     oemp.List = topNode;
     Open = repmat(oemp, robotCount, 1);
@@ -46,7 +46,7 @@ function [GV, Open, Robots, Paths, nodesToUpdate] = initializeMRDSL(Model)
         topNode.key = [topNode.hCost; 0];
         topNode.ind = 1;
 
-        % insert start node in open list
+        % insert start node in Open list
         Open(iRobot).count = 1;
         Open(iRobot).List(1) = topNode;
 

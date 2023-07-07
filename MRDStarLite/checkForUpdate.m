@@ -1,6 +1,6 @@
-function [open, Robot] = checkForUpdate(open, GV, Robot, nodesForUpdate, Model)
+function [Open, Robot] = checkForUpdate(Open, GV, Robot, nodesForUpdate, Model)
 
     % update vertex
-    [open, Robot] = updateVertex(open, GV, Robot, nodesForUpdate, Model);
+    [Open, Robot] = updateVertex(Open, GV, Robot, nodesForUpdate, Model);
 
 end

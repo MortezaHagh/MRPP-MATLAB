@@ -1,4 +1,4 @@
-function open = finalOpen(path)
+function Open = finalOpen(path)
 
     N = 10;
     path_len = numel(path.nodeNumbers);
@@ -9,24 +9,24 @@ function open = finalOpen(path)
     first.hCost = 0;
     first.dir = 0;
     first.time = 0;
-    open.List = first;
+    Open.List = first;
 
     for p = 2:path_len
-        open.List(p) = first;
-        open.List(p).nodeNumber = path.nodeNumbers(p);
-        open.List(p).pNode = path.nodeNumbers(p - 1);
-        open.List(p).time = p - 1;
+        Open.List(p) = first;
+        Open.List(p).nodeNumber = path.nodeNumbers(p);
+        Open.List(p).pNode = path.nodeNumbers(p - 1);
+        Open.List(p).time = p - 1;
     end
 
-    open.List(path_len + 1) = open.List(p);
-    open.List(path_len + 1).pNode = open.List(path_len + 1).nodeNumber;
-    open.List(path_len + 1).time = open.List(path_len + 1).time + 1;
+    Open.List(path_len + 1) = Open.List(p);
+    Open.List(path_len + 1).pNode = Open.List(path_len + 1).nodeNumber;
+    Open.List(path_len + 1).time = Open.List(path_len + 1).time + 1;
 
     for pp = path_len + 2:path_len + N
-        open.List(pp) = open.List(pp - 1);
-        open.List(pp).time = open.List(pp - 1).time + 1;
+        Open.List(pp) = Open.List(pp - 1);
+        Open.List(pp).time = Open.List(pp - 1).time + 1;
     end
 
-    open.count = path_len + N;
+    Open.count = path_len + N;
 
 end
