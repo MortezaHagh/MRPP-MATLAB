@@ -7,12 +7,12 @@ function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
     open_top_ind = -1; % 'no path!'
 
     % no_visit: not_visited_id
-    no_visit = [open(nr).list.visited] ~= 1;
+    no_visit = [open(nr).List.visited] ~= 1;
     snv = sum(no_visit);
 
     if snv > 0
-        candids = [[open(nr).list(no_visit).cost_f];
-                    abs(angleDiff([open(nr).list(no_visit).dir], dir));
+        candids = [[open(nr).List(no_visit).fCost];
+                    abs(angleDiff([open(nr).List(no_visit).dir], dir));
                     rand(1, snv);
                     find(no_visit)]';
 
@@ -25,9 +25,9 @@ function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
 
             for nnr = rv(rv ~= nr)
                 % check for collision type 2 (angle_diff + pi) % (2*pi) - pi
-                coll2 = [open(nnr).list.visited] == 1 & [open(nnr).list.pnode] == open(nr).list(open_top_ind).nodeNumber ...
-                    & [open(nnr).list.nodeNumber] == open(nr).list(open_top_ind).pnode ...
-                    & [open(nnr).list.time] == open(nr).list(open_top_ind).time;
+                coll2 = [open(nnr).List.visited] == 1 & [open(nnr).List.pNode] == open(nr).List(open_top_ind).nodeNumber ...
+                    & [open(nnr).List.nodeNumber] == open(nr).List(open_top_ind).pNode ...
+                    & [open(nnr).List.time] == open(nr).List(open_top_ind).time;
 
                 if any(coll2)
                     flag = 0;
@@ -35,8 +35,8 @@ function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
                 end
 
                 % check for collision type 1
-                coll1 = [open(nnr).list.visited] == 1 & [open(nnr).list.nodeNumber] == open(nr).list(open_top_ind).nodeNumber ...
-                    & [open(nnr).list.time] == open(nr).list(open_top_ind).time;
+                coll1 = [open(nnr).List.visited] == 1 & [open(nnr).List.nodeNumber] == open(nr).List(open_top_ind).nodeNumber ...
+                    & [open(nnr).List.time] == open(nr).List(open_top_ind).time;
 
                 if any(coll1)
                     flag = 0;
@@ -44,12 +44,12 @@ function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
                 end
 
                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                %             if open(nr).list(open_top_ind).nodeNumber==targetNode
-                %                 tg_id=[open(nnr).list.nodeNumber]==targetNode & [open(nnr).list.visited]==1;
+                %             if open(nr).List(open_top_ind).nodeNumber==targetNode
+                %                 tg_id=[open(nnr).List.nodeNumber]==targetNode & [open(nnr).List.visited]==1;
                 %                 if any(tg_id)
                 %                     tg_id = find(tg_id);
                 %                     tg_id = tg_id(end);
-                %                     dt = open(nnr).list(tg_id).time-open(nr).list(open_top_ind).time;
+                %                     dt = open(nnr).List(tg_id).time-open(nr).List(open_top_ind).time;
                 %                     if dt>0
                 %                         flag=0;
                 %                         % flag2=0;
@@ -78,6 +78,6 @@ function open_top_ind = selectTopNode_1(open, targetNode, dir, nr)
 
 end
 
-% tg_nr_id = [open(nr).list.nodeNumber]==targetNode;
+% tg_nr_id = [open(nr).List.nodeNumber]==targetNode;
 % tg_nr_id = find(tg_nr_id);
 % tg_nr_id = tg_nr_id(end);

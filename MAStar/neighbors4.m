@@ -1,10 +1,10 @@
-function neighbors = neighbors4(topnode, closed, Model, nr)
+function neighbors = neighbors4(topNode, closed, Model, nr)
     % arrange neighbors based on robot direction
-    % node pnode cost_g cost_f dir
+    % node pNode gCost fCost dir
 
-    xy = Model.Nodes.cord(:, topnode.nodeNumber);
+    xy = Model.Nodes.cord(:, topNode.nodeNumber);
     robot = Model.Robots(nr);
-    dir = topnode.dir;
+    dir = topNode.dir;
     x = xy(1);
     y = xy(2);
     nc = 0; % neighbors.count
@@ -34,19 +34,19 @@ function neighbors = neighbors4(topnode, closed, Model, nr)
 
         % check if the new node is within limits
         if ((nn_x >= Model.xMin && nn_x <= Model.xMax) && (nn_y >= Model.yMin && nn_y <= Model.yMax))
-            new_node = topnode.nodeNumber + i + (j * (Model.xMax - Model.xMin + 1));
+            new_node = topNode.nodeNumber + i + (j * (Model.xMax - Model.xMin + 1));
 
             % check if it is in Closed list
             if ~any(new_node == closed.nodeNumbers)
                 nc = nc + 1;
                 list(nc).visited = 0;
                 list(nc).nodeNumber = new_node;
-                list(nc).pnode = topnode.nodeNumber;
-                list(nc).cost_g = topnode.cost_g + calDistance(x, y, nn_x, nn_y, Model.distType);
-                cost_h = calDistance(robot.xt, robot.yt, nn_x, nn_y, Model.distType);
-                list(nc).cost_f = list(nc).cost_g + cost_h;
+                list(nc).pNode = topNode.nodeNumber;
+                list(nc).gCost = topNode.gCost + calDistance(x, y, nn_x, nn_y, Model.distType);
+                hCost = calDistance(robot.xt, robot.yt, nn_x, nn_y, Model.distType);
+                list(nc).fCost = list(nc).gCost + hCost;
                 list(nc).dir = nn_dir;
-                list(nc).time = topnode.time + 1;
+                list(nc).time = topNode.time + 1;
                 list(nc).tag = 1;
             end
 
@@ -57,9 +57,9 @@ function neighbors = neighbors4(topnode, closed, Model, nr)
     neighbors.count = nc;
 
     if nc ~= 0
-        neighbors.list = list;
+        neighbors.List = list;
     else
-        neighbors.list = [];
+        neighbors.List = [];
     end
 
 end

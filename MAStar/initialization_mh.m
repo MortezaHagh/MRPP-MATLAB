@@ -17,7 +17,7 @@ function [closed, open, topnodes, Robots, paths, closed_init] = initialization_m
 
     % open structure
     oemp.count = 0;
-    oemp.list = [];
+    oemp.List = [];
     open = repmat(oemp, robot_count, 1);
 
     % optimal path structure
@@ -40,28 +40,28 @@ function [closed, open, topnodes, Robots, paths, closed_init] = initialization_m
         %         closed(nnr).nodeNumbers(end+1) = Robots(nr).targetNode;
         %     end
 
-        % set the starting node (topnode) as the first node in Open
-        topnode.visited = 1;
-        topnode.nodeNumber = Robots(nr).startNode;
-        topnode.pnode = Robots(nr).startNode;
-        topnode.dir = Robots(nr).dir;
-        topnode.cost_g = 0;
-        cost_h = calDistance(Robots(nr).xs, Robots(nr).ys, Robots(nr).xt, Robots(nr).yt, Model.distType) * 2;
-        topnode.cost_f = topnode.cost_g + cost_h;
-        topnode.time = 0;
-        topnode.tag = 1;
+        % set the starting node (topNode) as the first node in Open
+        topNode.visited = 1;
+        topNode.nodeNumber = Robots(nr).startNode;
+        topNode.pNode = Robots(nr).startNode;
+        topNode.dir = Robots(nr).dir;
+        topNode.gCost = 0;
+        hCost = calDistance(Robots(nr).xs, Robots(nr).ys, Robots(nr).xt, Robots(nr).yt, Model.distType) * 2;
+        topNode.fCost = topNode.gCost + hCost;
+        topNode.time = 0;
+        topNode.tag = 1;
 
         % insert start node in open list
         open(nr).count = 1;
-        open(nr).list = topnode;
+        open(nr).List = topNode;
 
         % add last node (hear start node) to Closed
         closed(nr).count = closed(nr).count + 1;
-        closed(nr).nodeNumbers(end + 1) = topnode.nodeNumber;
+        closed(nr).nodeNumbers(end + 1) = topNode.nodeNumber;
     end
 
     % topnodes
-    topnodes = [open.list];
+    topnodes = [open.List];
 
     closed_init = closed;
 end

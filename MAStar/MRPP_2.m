@@ -24,15 +24,17 @@ function paths = MRPP_2(Model)
             %     for nr=1:robot_count
 
             % update mission flag
-            %         MissionFlag(nr) = (topnodes(nr).nodeNumber~=robots(nr).targetNode && isPath(nr) == 1);
+            % MissionFlag(nr) = (topnodes(nr).nodeNumber~=robots(nr).targetNode && isPath(nr) == 1);
             if MissionFlag(nr)
-
+                
                 % finding neighbors (successors)
-                if strcmp(Model.adjType, '4adj')
-                    neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
-                elseif strcmp(Model.adjType, '8adj')
-                    neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
-                end
+                neighbors = expand(topnodes(nr), closed(nr), Model, nr);
+
+%                 if strcmp(Model.adjType, '4adj')
+%                     neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
+%                 elseif strcmp(Model.adjType, '8adj')
+%                     neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
+%                 end
 
                 % update or extend open list with the successor nodes
                 open(nr) = updateOpen(open(nr), neighbors);
@@ -49,8 +51,8 @@ function paths = MRPP_2(Model)
 
                 % update open & close with new topNode
                 if ot_ind(nr) ~= -1
-                    open(nr).list(ot_ind(nr)).visited = 1;
-                    topnodes(nr) = open(nr).list(ot_ind(nr));
+                    open(nr).List(ot_ind(nr)).visited = 1;
+                    topnodes(nr) = open(nr).List(ot_ind(nr));
                     closed(nr).count = closed(nr).count + 1;
                     closed(nr).nodeNumbers(end + 1) = topnodes(nr).nodeNumber;
                 else

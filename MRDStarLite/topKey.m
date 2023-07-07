@@ -1,4 +1,4 @@
-function TopNode = topKey(Open)
+function topNode = topKey(Open)
 
     keys = [[Open.List.key]', rand(Open.count, 1)];
 
@@ -6,8 +6,8 @@ function TopNode = topKey(Open)
     [~, sortInds] = sortrows(keys);
     topKeyInd = sortInds(1);
 
-    TopNode = Open.List(topKeyInd);
-    TopNode.ind = topKeyInd;
+    topNode = Open.List(topKeyInd);
+    topNode.ind = topKeyInd;
 
     if keys(topKeyInd, 1) == inf
         disp('topKey: No Path!')

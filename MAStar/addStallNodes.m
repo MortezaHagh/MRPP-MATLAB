@@ -6,25 +6,25 @@ function [ot_ind, np_count, open] = addStallNodes(np_count, open, targetNode, di
         np_count = np_count + 1;
         disp(['robot: ', num2str(nr), ',  np_count: ', num2str(np_count)])
 
-        target_10 = open(nr).list.nodeNumber;
+        target_10 = open(nr).List.nodeNumber;
 
         if any(target_10)
             disp('')
         end
 
         % delete visited nodes which were infeasible
-        visit_ind = [open(nr).list.visited] == 1;
+        visit_ind = [open(nr).List.visited] == 1;
         visit_count = sum(visit_ind);
-        open(nr).list = open(nr).list(find(visit_ind));
+        open(nr).List = open(nr).List(find(visit_ind));
         open(nr).count = visit_count;
 
-        tag_1_ind = [open(nr).list.tag] == 1;
+        tag_1_ind = [open(nr).List.tag] == 1;
         tag_1_count = sum(tag_1_ind);
         tag_1_ind = find(tag_1_ind);
 
         % sort open list based on x
-        [~, inds] = sort([open(nr).list.cost_f], 'ascend'); % descend ascend
-        open(nr).list = open(nr).list(inds);
+        [~, inds] = sort([open(nr).List.fCost], 'ascend'); % descend ascend
+        open(nr).List = open(nr).List(inds);
 
         % create stall nodes for each node in open
         temp_osize = open(nr).count;
@@ -34,15 +34,15 @@ function [ot_ind, np_count, open] = addStallNodes(np_count, open, targetNode, di
 
             for i = k:tag_1_count
                 j = i + temp_osize;
-                open(nr).list(j) = open(nr).list(tag_1_ind(i));
-                open(nr).list(tag_1_ind(i)).tag = 0;
-                open(nr).list(j).tag = 1;
-                open(nr).list(tag_1_ind(i)).visited = 1;
-                open(nr).list(j).visited = -1;
-                open(nr).list(j).pnode = open(nr).list(j).nodeNumber;
-                open(nr).list(j).cost_g = open(nr).list(j).cost_g + 1;
-                open(nr).list(j).cost_f = open(nr).list(j).cost_f + 1; % +i*10
-                open(nr).list(j).time = open(nr).list(j).time + 1;
+                open(nr).List(j) = open(nr).List(tag_1_ind(i));
+                open(nr).List(tag_1_ind(i)).tag = 0;
+                open(nr).List(j).tag = 1;
+                open(nr).List(tag_1_ind(i)).visited = 1;
+                open(nr).List(j).visited = -1;
+                open(nr).List(j).pNode = open(nr).List(j).nodeNumber;
+                open(nr).List(j).gCost = open(nr).List(j).gCost + 1;
+                open(nr).List(j).fCost = open(nr).List(j).fCost + 1; % +i*10
+                open(nr).List(j).time = open(nr).List(j).time + 1;
                 open(nr).count = open(nr).count + 1;
                 ot_ind = selectTopNode_1(open, targetNode, dir, nr);
 

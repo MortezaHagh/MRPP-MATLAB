@@ -10,15 +10,15 @@ function [GV, Open, Robots, Paths, nodesToUpdate] = initializeMRDSL(Model)
     Robots = Model.Robots;
     robotCount = Model.robotCount;
 
-    % topnode structure
-    TopNode.nodeNumber = 0;
-    TopNode.hCost = 0;
-    TopNode.key = 0;
-    TopNode.ind = 1;
+    % topNode structure
+    topNode.nodeNumber = 0;
+    topNode.hCost = 0;
+    topNode.key = 0;
+    topNode.ind = 1;
 
     % open structure
     oemp.count = 0;
-    oemp.List = TopNode;
+    oemp.List = topNode;
     Open = repmat(oemp, robotCount, 1);
 
     % nodesToUpdate
@@ -41,17 +41,17 @@ function [GV, Open, Robots, Paths, nodesToUpdate] = initializeMRDSL(Model)
         GV(Robots(iRobot).startNode).robot = iRobot;
 
         % set the starting node as the first node
-        TopNode.nodeNumber = Robots(iRobot).targetNode;
-        TopNode.hCost = calDistance(Robots(iRobot).xs, Robots(iRobot).ys, Robots(iRobot).xt, Robots(iRobot).yt, Model.distType);
-        TopNode.key = [TopNode.hCost; 0];
-        TopNode.ind = 1;
+        topNode.nodeNumber = Robots(iRobot).targetNode;
+        topNode.hCost = calDistance(Robots(iRobot).xs, Robots(iRobot).ys, Robots(iRobot).xt, Robots(iRobot).yt, Model.distType);
+        topNode.key = [topNode.hCost; 0];
+        topNode.ind = 1;
 
         % insert start node in open list
         Open(iRobot).count = 1;
-        Open(iRobot).List(1) = TopNode;
+        Open(iRobot).List(1) = topNode;
 
         % robots: G, RHS, path, sLast, Start, sGoal
-        RHS{iRobot}(TopNode.nodeNumber) = 0;
+        RHS{iRobot}(topNode.nodeNumber) = 0;
         Robots(iRobot).km = 0;
         Robots(iRobot).csp_flag = 1;
         Robots(iRobot).G = G{iRobot};

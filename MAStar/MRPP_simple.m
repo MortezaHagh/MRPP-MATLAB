@@ -38,8 +38,8 @@ function paths = MRPP_simple(Model)
 
                 % update open & close with new topNode
                 if ot_ind(nr) ~= -1
-                    open(nr).list(ot_ind(nr)).visited = 1;
-                    topnodes(nr) = open(nr).list(ot_ind(nr));
+                    open(nr).List(ot_ind(nr)).visited = 1;
+                    topnodes(nr) = open(nr).List(ot_ind(nr));
                     closed(nr).count = closed(nr).count + 1;
                     closed(nr).nodeNumbers(end + 1) = topnodes(nr).nodeNumber;
                 else

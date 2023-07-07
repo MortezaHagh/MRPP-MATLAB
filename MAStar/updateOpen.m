@@ -2,22 +2,22 @@ function open = updateOpen(open, neighbors)
 
     % update or extend Open list with the successor nodes
     for i = 1:neighbors.count
-        neighbors_open_common = [open.list.nodeNumber] == neighbors.list(i).nodeNumber & [open.list.visited] == 0;
+        neighbors_open_common = [open.List.nodeNumber] == neighbors.List(i).nodeNumber & [open.List.visited] == 0;
 
         % if there is a common node in neighbors and open
         if any(neighbors_open_common)
             open_ind = find(neighbors_open_common);
 
-            % if cost_f of node in exp_array is less than Open -> update node in Open
-            if neighbors.list(i).cost_f < open.list(open_ind).cost_f
-                open.list(open_ind) = neighbors.list(i);
+            % if fCost of node in exp_array is less than Open -> update node in Open
+            if neighbors.List(i).fCost < open.List(open_ind).fCost
+                open.List(open_ind) = neighbors.List(i);
             end
 
             % if there is No common node in exp_count and Open
         else
             % insert neighbor into the open list
             open.count = open.count + 1;
-            open.list(open.count) = neighbors.list(i);
+            open.List(open.count) = neighbors.List(i);
         end
 
     end
