@@ -5,6 +5,7 @@ Including heuristic search and incremental heuristic search methods.
 
 (Procedural programming)
 
+
 <table style="padding:10px">
   <tr>
     <td><img src="./MAStar/Results/sim-1.jpg" align="right" alt="2"></td>
