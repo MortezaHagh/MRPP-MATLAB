@@ -21,8 +21,8 @@ Model.occLength = 1000;
 
 %% create Model
 
-% from function createModel_mrdsl_Article createModel_mrdsl_2
-Model = createModel_mrdsl_1(Model);
+% from function createModel_mrdsl_Article createModel_mrdsl_2 createModel_mrdsl_1
+Model = createModel_mrdsl_2(Model);
 
 % robotCount
 robotCount = Model.robotCount;
@@ -67,9 +67,9 @@ disp(['total_runTime: ' num2str(round(total_runTime, 3))])
 % plot solution
 Color = hsv(robotCount);
 plotModelMulti(Model)
-plotSolution(Sol, Model, Color) % plot Paths
+% plotSolution(Sol, Model, Color) % plot Paths
 % plotAnimation_1(Sol, Model, Color)    % animated points and Paths, in turn.
-% plotAnimation_2(Sol, Model, Color)      % animated points with tale! concurrent.
+plotAnimation_2(Sol, Model, Color)      % animated points with tale! concurrent.
 % plotAnimation_3(Sol, Model, Color)    % animated points and Paths, concurrent.
 
 %% clear temporal data
