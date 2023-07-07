@@ -53,4 +53,4 @@ To change the configuration, you can edit the **createModel_#.m** file.
 
 ## Simulation
 
-<td><img src="./MAStar/Results/sim-2-r29.gif" align="right" alt="2"></td>
+<td><img src="./MAStar/Results/sim-2-r29.gif" align="center" alt="2"></td>
