@@ -5,7 +5,7 @@ function Model = createModel_mh_2(Model)
     msc = 10;
 
     %% robots
-    robot_count = 15;
+    robot_count = 10;
 
     % dir: direction
     Robots(1).dir = 0;
@@ -190,6 +190,26 @@ function Model = createModel_mh_2(Model)
         end
 
     end
+
+    %% Map Obsts
+    Map.lim = limArea;
+    Map.xMin = xMin;
+    Map.xMax = xMax;
+    Map.yMin = yMin;
+    Map.yMax = yMax;
+    Map.nX = Map.xMax - Map.xMin + 1;
+    Map.nY = Map.yMax - Map.yMin + 1;
+
+    Obsts.count = numel(obstNode);
+    Obsts.x = xc;
+    Obsts.y = yc;
+    Obsts.nodeNumber = obstNode;
+    Obsts.r = obst_r;
+
+    Model.robotCount = robot_count;
+
+    Model.Map = Map;
+    Model.Obsts = Obsts;
 
     %% save Model
     Model.robot_count = robot_count;

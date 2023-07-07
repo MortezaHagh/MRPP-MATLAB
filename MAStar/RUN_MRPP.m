@@ -16,7 +16,7 @@ Model.adj_type = '4adj';        % '4adj' '8adj'
 
 % create Model
 % createModel_mh_1 createModel_mh_2 createModel_mh_ctest
-Model = createModel_mh_1(Model);
+Model = createModel_mh_2(Model);
 Model.msc = 100;
 
 % % 45r_2
@@ -87,9 +87,9 @@ disp(['tot_operation_time: ' num2str(tot_operation_time)])
 % % plot solution
 plotModelMulti(Model)
 Color = hsv(robot_count);
-plotSolution(sol, Model, Color) % plot paths
+% plotSolution(sol, Model, Color) % plot paths
 % plotAnimation_1(sol, Model, Color)    % animated points and paths, in turn.
-% plotAnimation_2(sol, Model, Color)      % animated points with tale! concurrent.
+plotAnimation_2(sol, Model, Color)      % animated points with tale! concurrent.
 % plotAnimation_3(sol, Model, Color)    % animated points and paths, concurrent.
 
 %% clear temporal data

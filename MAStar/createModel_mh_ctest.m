@@ -79,6 +79,26 @@ function Model = createModel_mh_ctest(Model)
 
     end
 
+    %% Map Obsts
+    Map.lim = limArea;
+    Map.xMin = xMin;
+    Map.xMax = xMax;
+    Map.yMin = yMin;
+    Map.yMax = yMax;
+    Map.nX = Map.xMax - Map.xMin + 1;
+    Map.nY = Map.yMax - Map.yMin + 1;
+
+    Obsts.count = numel(obstNode);
+    Obsts.x = xc;
+    Obsts.y = yc;
+    Obsts.nodeNumber = obstNode;
+    Obsts.r = obst_r;
+
+    Model.robotCount = robot_count;
+
+    Model.Map = Map;
+    Model.Obsts = Obsts;
+
     %% save Model
     Model.robot_count = robot_count;
     Model.obstNode = obstNode;
