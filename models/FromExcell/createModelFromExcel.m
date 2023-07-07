@@ -7,7 +7,7 @@ function Model = createModelFromExcel(Model)
     % max_stall_count
     MSC = 40;
 
-    %% Map Size
+    %% Map
     Map.lim = data(1, 1);
     Map.xMin = 0;
     Map.xMax = data(1, 1);
@@ -47,19 +47,19 @@ function Model = createModelFromExcel(Model)
     %% Obstacle
 
     % radius
-    Obst.r = 0.25;
+    Obsts.r = 0.25;
 
-    Obst.count = data(1, 3);
+    Obsts.count = data(1, 3);
     Obst2.count = data(1, 4);
 
-    Obst.x = zeros(1, Obst.count);
-    Obst.y = zeros(1, Obst.count);
-    Obst.nodeNumber = zeros(1, Obst.count);
+    Obsts.x = zeros(1, Obsts.count);
+    Obsts.y = zeros(1, Obsts.count);
+    Obsts.nodeNumber = zeros(1, Obsts.count);
 
-    for iObst = 1:Obst.count
-        Obst.x(iObst) = data(iObst, 4);
-        Obst.y(iObst) = data(iObst, 5);
-        Obst.nodeNumber(iObst) = (Obst.y(iObst) - Map.yMin) * (Map.xMax - Map.xMin + 1) + Obst.x(iObst) - Map.xMin + 1;
+    for iObst = 1:Obsts.count
+        Obsts.x(iObst) = data(iObst, 4);
+        Obsts.y(iObst) = data(iObst, 5);
+        Obsts.nodeNumber(iObst) = (Obsts.y(iObst) - Map.yMin) * (Map.xMax - Map.xMin + 1) + Obsts.x(iObst) - Map.xMin + 1;
     end
 
     Obst2.x = zeros(1, Obst2.count);
@@ -113,7 +113,7 @@ function Model = createModelFromExcel(Model)
 
     for iNode = 1:Nodes.count
 
-        if ~any(iNode == Obst.nodeNumber)
+        if ~any(iNode == Obsts.nodeNumber)
             xNode = Nodes.cord(1, iNode);
             yNode = Nodes.cord(2, iNode);
 
@@ -127,7 +127,7 @@ function Model = createModelFromExcel(Model)
                 if (newX >= Map.xMin && newX <= Map.xMax) && (newY >= Map.yMin && newY <= Map.yMax)
                     newNodeNumber = iNode + ix + iy * (Map.xMax - Map.xMin + 1);
 
-                    if ~any(newNodeNumber == Obst.nodeNumber)
+                    if ~any(newNodeNumber == Obsts.nodeNumber)
                         Successors{iNode, 1} = [Successors{iNode, 1}, newNodeNumber];
                         Predecessors{newNodeNumber, 1} = [Predecessors{newNodeNumber, 1}, iNode];
 
@@ -161,7 +161,7 @@ function Model = createModelFromExcel(Model)
     Model.Nodes = Nodes;
     Model.Robot = Robot;
     Model.Obst2 = Obst2;
-    Model.Obst = Obst;
+    Model.Obsts = Obsts;
     Model.Map = Map;
 
     Model.Predecessors = Predecessors;

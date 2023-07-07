@@ -69,7 +69,7 @@ function [Model, Robots, Paths] = myMRDstarLite(Model)
 
     % % update Model
     % new_obst_xy = Model.Nodes.cord(:,3);
-    % Model.Obst.x = [Model.Obst.x, new_obst_xy(1,:)];
-    % Model.Obst.y = [Model.Obst.y, new_obst_xy(2,:)];
+    % Model.Obsts.x = [Model.Obsts.x, new_obst_xy(1,:)];
+    % Model.Obsts.y = [Model.Obsts.y, new_obst_xy(2,:)];
 
 end

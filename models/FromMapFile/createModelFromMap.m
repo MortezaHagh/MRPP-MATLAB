@@ -1,7 +1,7 @@
 function Model = createModelFromMap(MapInput, Model)
     % Create Model from Map
 
-    %% Map Size
+    %% Map
     [H, W] = size(MapInput);
     Map.xMin = 0;
     Map.yMin = 0;
@@ -13,10 +13,10 @@ function Model = createModelFromMap(MapInput, Model)
 
     %% Obstacles
 
-    Obst.r = 0.25;
-    Obst.x = [];
-    Obst.y = [];
-    Obst.nodeNumber = [];
+    Obsts.r = 0.25;
+    Obsts.x = [];
+    Obsts.y = [];
+    Obsts.nodeNumber = [];
     Nodes.count = H * W;
     Nodes.cord = zeros(2, Nodes.count);
     Nodes.number = zeros(1, Nodes.count);
@@ -30,9 +30,9 @@ function Model = createModelFromMap(MapInput, Model)
             Nodes.cord(:, iNodeNumber) = [j - 1, i - 1]';
 
             if MapInput(i, j) == 0
-                Obst.x = [Obst.x j - 1];
-                Obst.y = [Obst.y i - 1];
-                Obst.nodeNumber = [Obst.nodeNumber iNodeNumber];
+                Obsts.x = [Obsts.x j - 1];
+                Obsts.y = [Obsts.y i - 1];
+                Obsts.nodeNumber = [Obsts.nodeNumber iNodeNumber];
             end
 
             iNodeNumber = iNodeNumber + 1;
@@ -40,7 +40,7 @@ function Model = createModelFromMap(MapInput, Model)
 
     end
 
-    Obst.count = numel(Obst.nodeNumber);
+    Obsts.count = numel(Obsts.nodeNumber);
 
     %% edge costs, G, RHS, GV
 
@@ -69,7 +69,7 @@ function Model = createModelFromMap(MapInput, Model)
 
     for iNode = 1:Nodes.count
 
-        if ~any(iNode == Obst.nodeNumber)
+        if ~any(iNode == Obsts.nodeNumber)
             xNode = Nodes.cord(1, iNode);
             yNode = Nodes.cord(2, iNode);
 
@@ -83,7 +83,7 @@ function Model = createModelFromMap(MapInput, Model)
                 if (newX >= Map.xMin && newX <= Map.xMax) && (newY >= Map.yMin && newY <= Map.yMax)
                     newNodeNumber = iNode + ix + iy * (Map.nX);
 
-                    if ~any(newNodeNumber == Obst.nodeNumber)
+                    if ~any(newNodeNumber == Obsts.nodeNumber)
                         Successors{iNode, 1} = [Successors{iNode, 1}, newNodeNumber];
                         Predecessors{newNodeNumber, 1} = [Predecessors{newNodeNumber, 1}, iNode];
 
@@ -115,7 +115,7 @@ function Model = createModelFromMap(MapInput, Model)
 
     %% save Model
     Model.Nodes = Nodes;
-    Model.Obst = Obst;
+    Model.Obsts = Obsts;
     Model.Map = Map;
 
     Model.Predecessors = Predecessors;

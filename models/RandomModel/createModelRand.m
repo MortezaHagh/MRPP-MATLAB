@@ -1,7 +1,7 @@
 function Model = createModelRand(Model, nObst, nRobot)
     % Create Complete Model for MRPP - Random
 
-    %% Map Size
+    %% Map
     Map.lim = 20;
     Map.xMin = 1;
     Map.xMax = 30;
@@ -12,7 +12,7 @@ function Model = createModelRand(Model, nObst, nRobot)
     Map.nY = Map.yMax - Map.yMin + 1;
 
     %% Generate Random Arrangments
-    Obst.count = nObst;
+    Obsts.count = nObst;
     robotCount = nRobot;
     Model.robotCount = robotCount;
 
@@ -30,7 +30,7 @@ function Model = createModelRand(Model, nObst, nRobot)
 
     end
 
-    aRand = randsample(nNodes, 2 * robotCount + Obst.count);
+    aRand = randsample(nNodes, 2 * robotCount + Obsts.count);
 
     randStart = aRand(1:robotCount);
     xStart = X(randStart);
@@ -40,18 +40,18 @@ function Model = createModelRand(Model, nObst, nRobot)
     xTarget = X(randTarget);
     yTarget = Y(randTarget);
 
-    randObstacles = aRand(2 * robotCount + 1:2 * robotCount + Obst.count);
-    Obst.x = X(randObstacles)';
-    Obst.y = Y(randObstacles)';
+    randObstacles = aRand(2 * robotCount + 1:2 * robotCount + Obsts.count);
+    Obsts.x = X(randObstacles)';
+    Obsts.y = Y(randObstacles)';
 
     % obstacle node numbers
-    Obst.nodeNumber = zeros(1, Obst.count);
+    Obsts.nodeNumber = zeros(1, Obsts.count);
 
-    for iObst = 1:Obst.count
-        Obst.nodeNumber(iObst) = (Obst.y(iObst) - Map.yMin) * (Map.nX) + Obst.x(iObst) - Map.xMin + 1;
+    for iObst = 1:Obsts.count
+        Obsts.nodeNumber(iObst) = (Obsts.y(iObst) - Map.yMin) * (Map.nX) + Obsts.x(iObst) - Map.xMin + 1;
     end
 
-    Obst.r = 0.25;
+    Obsts.r = 0.25;
 
     %% robots data
     r.dir = 0;
@@ -120,7 +120,7 @@ function Model = createModelRand(Model, nObst, nRobot)
 
     for iNode = 1:Nodes.count
 
-        if ~any(iNode == Obst.nodeNumber)
+        if ~any(iNode == Obsts.nodeNumber)
             xNode = Nodes.cord(1, iNode);
             yNode = Nodes.cord(2, iNode);
 
@@ -134,7 +134,7 @@ function Model = createModelRand(Model, nObst, nRobot)
                 if (newX >= Map.xMin && newX <= Map.xMax) && (newY >= Map.yMin && newY <= Map.yMax)
                     newNodeNumber = iNode + ix + iy * (Map.nX);
 
-                    if ~any(newNodeNumber == Obst.nodeNumber)
+                    if ~any(newNodeNumber == Obsts.nodeNumber)
                         Successors{iNode, 1} = [Successors{iNode, 1}, newNodeNumber];
                         Predecessors{newNodeNumber, 1} = [Predecessors{newNodeNumber, 1}, iNode];
 
@@ -167,7 +167,7 @@ function Model = createModelRand(Model, nObst, nRobot)
     %% save Model
     Model.Nodes = Nodes;
     Model.Robot = Robot;
-    Model.Obst = Obst;
+    Model.Obsts = Obsts;
     Model.Map = Map;
 
     Model.Predecessors = Predecessors;

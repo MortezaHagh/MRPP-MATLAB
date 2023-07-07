@@ -33,8 +33,8 @@ function neighbors = neighbors4(topnode, closed, Model, nr)
         nn_y = y + j;
 
         % check if the new node is within limits
-        if ((nn_x >= Model.xmin && nn_x <= Model.xmax) && (nn_y >= Model.ymin && nn_y <= Model.ymax))
-            new_node = topnode.nodeNumber + i + (j * (Model.xmax - Model.xmin + 1));
+        if ((nn_x >= Model.xMin && nn_x <= Model.xMax) && (nn_y >= Model.yMin && nn_y <= Model.yMax))
+            new_node = topnode.nodeNumber + i + (j * (Model.xMax - Model.xMin + 1));
 
             % check if it is in Closed list
             if ~any(new_node == closed.nodeNumbers)

@@ -1,7 +1,7 @@
 function Model = createModel_mrdsl_Article(Model)
     % Create Complete Model for MRPP
 
-    %% Map Size
+    %% Map
     Map.lim = 9;
     Map.xMin = 1;
     Map.xMax = Map.lim;
@@ -43,22 +43,22 @@ function Model = createModel_mrdsl_Article(Model)
     %% Obstacle
 
     % radius
-    Obst.r = 0.25;
+    Obsts.r = 0.25;
 
     % Obstacle coordinates
     xc1 = [8, 5, 4, 6, 8];
     yc1 = [5, 7, 7, 2, 6];
 
-    Obst.x = xc1;
-    Obst.y = yc1;
+    Obsts.x = xc1;
+    Obsts.y = yc1;
 
-    Obst.count = length(Obst.x);
+    Obsts.count = length(Obsts.x);
 
     % obstacle node numbers
-    Obst.nodeNumber = zeros(1, Obst.count);
+    Obsts.nodeNumber = zeros(1, Obsts.count);
 
-    for iObst = 1:Obst.count
-        Obst.nodeNumber(iObst) = (Obst.y(iObst) - Map.yMin) * (Map.nX) + Obst.x(iObst) + abs(Map.xMin - 1);
+    for iObst = 1:Obsts.count
+        Obsts.nodeNumber(iObst) = (Obsts.y(iObst) - Map.yMin) * (Map.nX) + Obsts.x(iObst) + abs(Map.xMin - 1);
     end
 
     %% nodes & adj data
@@ -103,7 +103,7 @@ function Model = createModel_mrdsl_Article(Model)
 
     for iNode = 1:Nodes.count
 
-        if ~any(iNode == Obst.nodeNumber)
+        if ~any(iNode == Obsts.nodeNumber)
             xNode = Nodes.cord(1, iNode);
             yNode = Nodes.cord(2, iNode);
 
@@ -117,7 +117,7 @@ function Model = createModel_mrdsl_Article(Model)
                 if (newX >= Map.xMin && newX <= Map.xMax) && (newY >= Map.yMin && newY <= Map.yMax)
                     newNodeNumber = iNode + ix + iy * (Map.nX);
 
-                    if ~any(newNodeNumber == Obst.nodeNumber)
+                    if ~any(newNodeNumber == Obsts.nodeNumber)
                         Successors{iNode, 1} = [Successors{iNode, 1}, newNodeNumber];
                         Predecessors{newNodeNumber, 1} = [Predecessors{newNodeNumber, 1}, iNode];
 
@@ -150,7 +150,7 @@ function Model = createModel_mrdsl_Article(Model)
     %% save Model
     Model.Nodes = Nodes;
     Model.Robot = Robot;
-    Model.Obst = Obst;
+    Model.Obsts = Obsts;
     Model.Map = Map;
 
     Model.Predecessors = Predecessors;

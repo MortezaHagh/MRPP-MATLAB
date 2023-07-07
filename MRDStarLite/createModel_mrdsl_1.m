@@ -1,7 +1,7 @@
 function Model = createModel_mrdsl_1(Model)
     % Create Complete Model for MRPP
 
-    %% Map Size
+    %% Map
     Map.lim = 28;
     Map.xMin = 1;
     Map.xMax = Map.lim;
@@ -44,7 +44,7 @@ function Model = createModel_mrdsl_1(Model)
     %% Obstacle
 
     % radius
-    Obst.r = 0.25;
+    Obsts.r = 0.25;
 
     % Obstacle coordinates
     xc1 = [4 4 4 6 6 6 8 8 8 10 10 10 12 12 12];
@@ -56,16 +56,16 @@ function Model = createModel_mrdsl_1(Model)
     xc3 = xc2 + 12;
     yc3 = yc2;
 
-    Obst.x = [xc2 xc3];
-    Obst.y = [yc2 yc3];
+    Obsts.x = [xc2 xc3];
+    Obsts.y = [yc2 yc3];
 
-    Obst.count = length(Obst.x);
+    Obsts.count = length(Obsts.x);
 
     % obstacle node numbers
-    Obst.nodeNumber = zeros(1, Obst.count);
+    Obsts.nodeNumber = zeros(1, Obsts.count);
 
-    for iObst = 1:Obst.count
-        Obst.nodeNumber(iObst) = (Obst.y(iObst) - Map.yMin) * (Map.nX) + Obst.x(iObst) - Map.xMin + 1;
+    for iObst = 1:Obsts.count
+        Obsts.nodeNumber(iObst) = (Obsts.y(iObst) - Map.yMin) * (Map.nX) + Obsts.x(iObst) - Map.xMin + 1;
     end
 
     %% nodes & adj data
@@ -109,7 +109,7 @@ function Model = createModel_mrdsl_1(Model)
 
     for iNode = 1:Nodes.count
 
-        if ~any(iNode == Obst.nodeNumber)
+        if ~any(iNode == Obsts.nodeNumber)
             xNode = Nodes.cord(1, iNode);
             yNode = Nodes.cord(2, iNode);
 
@@ -123,7 +123,7 @@ function Model = createModel_mrdsl_1(Model)
                 if (newX >= Map.xMin && newX <= Map.xMax) && (newY >= Map.yMin && newY <= Map.yMax)
                     newNodeNumber = iNode + ix + iy * (Map.nX);
 
-                    if ~any(newNodeNumber == Obst.nodeNumber)
+                    if ~any(newNodeNumber == Obsts.nodeNumber)
                         Successors{iNode, 1} = [Successors{iNode, 1}, newNodeNumber];
                         Predecessors{newNodeNumber, 1} = [Predecessors{newNodeNumber, 1}, iNode];
 
@@ -156,7 +156,7 @@ function Model = createModel_mrdsl_1(Model)
     %% save Model
     Model.Nodes = Nodes;
     Model.Robot = Robot;
-    Model.Obst = Obst;
+    Model.Obsts = Obsts;
     Model.Map = Map;
 
     Model.Predecessors = Predecessors;

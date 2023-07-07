@@ -24,11 +24,11 @@ function [cost, SolChar] = calCostLinear(Model, coords)
     yy = yy(:, 1:end - 1)';
     yy = yy(:); yy = yy';
 
-    violation = zeros(1, Model.Obst.count);
+    violation = zeros(1, Model.Obsts.count);
 
-    for i = 1:Model.Obst.count
-        d = sqrt((xx - Model.Obst.x(i)) .^ 2 + (yy - Model.Obst.y(i)) .^ 2);
-        v = max(1 - d / (Model.Obst.r), 0);
+    for i = 1:Model.Obsts.count
+        d = sqrt((xx - Model.Obsts.x(i)) .^ 2 + (yy - Model.Obsts.y(i)) .^ 2);
+        v = max(1 - d / (Model.Obsts.r), 0);
         violation(i) = mean(v);
     end
 

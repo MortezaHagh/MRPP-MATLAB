@@ -16,7 +16,7 @@ Model.adj_type = '8adj'; % euclidean manhattan;
 
 % create Model
 % createModel_mh_1 createModel_mh_2 createModel_mh_ctest
-Model = createModel_mh_ctest(Model);
+Model = createModel_mh_1(Model);
 Model.msc = 100;
 
 % % 45r_2
@@ -74,11 +74,11 @@ tot_operation_time = sum([sol.len]);
 collisionsCheck(paths, robot_count)
 
 % disp data
-disp(num2str(round(total_cost, 2)))
-disp(num2str(round(total_pTime, 3)))
-disp(num2str(total_smoothness))
-disp(num2str(max_operation_time))
-disp(num2str(tot_operation_time))
+disp(['total_cost: ' num2str(round(total_cost, 2))])
+disp(['total_pTime: ' num2str(round(total_pTime, 3))])
+disp(['total_smoothness: ' num2str(total_smoothness)])
+disp(['max_operation_time: ' num2str(max_operation_time)])
+disp(['tot_operation_time: ' num2str(tot_operation_time)])
 
 % for i=1:robot_count
 %    disp(sol(i))

@@ -29,19 +29,19 @@ function isFeasible = checkFeasibility(Model)
     end
 
     % not considering other robots
-    Model.Obst.nodeNumber = [Model.Obst.nodeNumber [Robots.targetNode]];
-    Model.Obst.x = [Model.Obst.x [Robots.xt]];
-    Model.Obst.y = [Model.Obst.y [Robots.yt]];
+    Model.Obsts.nodeNumber = [Model.Obsts.nodeNumber [Robots.targetNode]];
+    Model.Obsts.x = [Model.Obsts.x [Robots.xt]];
+    Model.Obsts.y = [Model.Obsts.y [Robots.yt]];
 
     isFeasible2 = 1;
 
     for iRobot = 1:Model.robotCount
         Model = Model;
         Model.Robot = Robots(iRobot);
-        Model.Obst.nodeNumber(Model.Obst.count + iRobot) = [];
-        Model.Obst.x(Model.Obst.count + iRobot) = [];
-        Model.Obst.y(Model.Obst.count + iRobot) = [];
-        Model.Obst.count = Model.Obst.count - 1 + Model.robotCount;
+        Model.Obsts.nodeNumber(Model.Obsts.count + iRobot) = [];
+        Model.Obsts.x(Model.Obsts.count + iRobot) = [];
+        Model.Obsts.y(Model.Obsts.count + iRobot) = [];
+        Model.Obsts.count = Model.Obsts.count - 1 + Model.robotCount;
 
         try
             myAStar(Model);

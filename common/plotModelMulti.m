@@ -1,15 +1,15 @@
 function plotModelMulti(Model)
 
-    xmin = Model.Map.xMin;
-    xmax = Model.Map.xMax;
-    ymin = Model.Map.yMin;
-    ymax = Model.Map.yMax;
-    obstX = Model.Obst.x;
-    obstY = Model.Obst.y;
+    xMin = Model.Map.xMin;
+    xMax = Model.Map.xMax;
+    yMin = Model.Map.yMin;
+    yMax = Model.Map.yMax;
+    obstX = Model.Obsts.x;
+    obstY = Model.Obsts.y;
     Robot = Model.Robot;
 
     % figure(1)
-    axis([xmin - 3, xmax + 3, ymin - 3, ymax + 3])
+    axis([xMin - 3, xMax + 3, yMin - 3, yMax + 3])
     axis equal
     % grid minor
     % grid on
@@ -47,6 +47,6 @@ function plotModelMulti(Model)
     % end
 
     % walls
-    rectangle('Position', [xmin - 2, ymin - 2, (xmax - xmin + 3), (ymax - ymin + 3)], 'LineWidth', 2)
+    rectangle('Position', [xMin - 2, yMin - 2, (xMax - xMin + 3), (yMax - yMin + 3)], 'LineWidth', 2)
 
 end

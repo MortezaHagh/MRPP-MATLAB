@@ -24,11 +24,11 @@ function Model = createModel_mh_1(Model)
 
     %% Area
     limArea = 28;
-    xmin = -1; xmax = limArea;
-    ymin = -1; ymax = limArea;
+    xMin = -1; xMax = limArea;
+    yMin = -1; yMax = limArea;
 
-    % x_node_num=xmax;
-    % y_node_num=ymax;
+    % x_node_num=xMax;
+    % y_node_num=yMax;
 
     %%% Obstacle
     obst_r = 0.25;
@@ -48,9 +48,9 @@ function Model = createModel_mh_1(Model)
     k = 1;
     adj = cell(1, 1);
 
-    for j = ymin:ymax
+    for j = yMin:yMax
 
-        for i = xmin:xmax
+        for i = xMin:xMax
             adj{k, 1} = k; % node number
             adj{k, 2} = [i, j]; % node coordinates
             Nodes.cord(1:2, k) = [i, j]'; % node coordinates
@@ -87,6 +87,27 @@ function Model = createModel_mh_1(Model)
 
     end
 
+    
+    %% Map Obsts
+    Map.lim = limArea;
+    Map.xMin = xMin;
+    Map.xMax = xMax;
+    Map.yMin = yMin;
+    Map.yMax = yMax;
+    Map.nX = Map.xMax - Map.xMin + 1;
+    Map.nY = Map.yMax - Map.yMin + 1;
+
+    Obsts.count = numel(obstNode);
+    Obsts.x = xc;
+    Obsts.y = yc;
+    Obsts.nodeNumber = obstNode;
+    Obsts.r = obst_r;
+
+
+    Model.Map = Map;
+    Model.Obsts = Obsts;
+
+    
     %% save Model
     Model.robot_count = robot_count;
     Model.obstNode = obstNode;
@@ -95,10 +116,10 @@ function Model = createModel_mh_1(Model)
     Model.limArea = limArea;
     Model.obst_r = obst_r;
     Model.Nodes = Nodes;
-    Model.xmin = xmin;
-    Model.xmax = xmax;
-    Model.ymin = ymin;
-    Model.ymax = ymax;
+    Model.xMin = xMin;
+    Model.xMax = xMax;
+    Model.yMin = yMin;
+    Model.yMax = yMax;
     Model.adj = adj;
     Model.robo = robo;
     Model.msc = msc;
