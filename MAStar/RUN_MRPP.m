@@ -15,8 +15,8 @@ Model.distType = 'manhattan';  % euclidean manhattan;
 Model.adjType = '4adj';        % '4adj' '8adj'
 
 %% create Model
-% createModel_mh_1 createModel_mh_2 createModel_mh_ctest
-Model = createModel_mh_1(Model);
+% createModel_1 createModel_2 createModel_ctest
+Model = createModel_1(Model);
 Model = createModelAstar(Model);
 
 Model.msc = 100;

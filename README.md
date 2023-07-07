@@ -36,3 +36,15 @@ can change this setting in the Run_[method].m file
 
 - distance type: **Model.distType** ('euclidean' or 'manhattan')
 - distance type: **Model.adjType** ('4adj' or '8adj')
+
+## Configuration - Models
+
+Initial configuration includes:
+
+- Map (free nodes)
+- obstacles (occupied nodes)
+- robot's start node
+- robot's goal node
+- ...
+
+To change the configuration, you can edit the **createModel_#.m** file.

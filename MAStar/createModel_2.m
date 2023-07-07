@@ -1,4 +1,4 @@
-function Model = createModel_mh_2(Model)
+function Model = createModel_2(Model)
 
     %% Algorithm
     % max_stall_count

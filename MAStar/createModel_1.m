@@ -1,4 +1,4 @@
-function Model = createModel_mh_ctest(Model)
+function Model = createModel_1(Model)
 
     %% Algorithm
     % max_stall_count
@@ -13,17 +13,17 @@ function Model = createModel_mh_ctest(Model)
     Robots(3).dir = -pi / 2;
 
     % start & goal
-    Robots(1).xs = 1; Robots(1).ys = 0;
-    Robots(1).xt = 0; Robots(1).yt = 3;
+    Robots(1).xs = 1; Robots(1).ys = 4;
+    Robots(1).xt = 21; Robots(1).yt = 14;
 
-    Robots(2).xs = -1; Robots(2).ys = 0;
-    Robots(2).xt = 1; Robots(2).yt = 3;
+    Robots(2).xs = 25; Robots(2).ys = 4;
+    Robots(2).xt = 4; Robots(2).yt = 14;
 
-    Robots(3).xs = 0; Robots(3).ys = -1;
-    Robots(3).xt = 1; Robots(3).yt = 4;
+    Robots(3).xs = 5; Robots(3).ys = 7;
+    Robots(3).xt = 1; Robots(3).yt = 12;
 
     %% Area
-    limArea = 4;
+    limArea = 28;
     xMin = -1; xMax = limArea;
     yMin = -1; yMax = limArea;
 
@@ -32,9 +32,17 @@ function Model = createModel_mh_ctest(Model)
 
     %%% Obstacle
     obst_r = 0.25;
+    xc1 = [4 4 4 6 6 6 8 8 8 10 10 10 12 12 12];
+    yc1 = [4 5 6 4 5 6 4 5 6 4 5 6 4 5 6];
 
-    xc = [1 -1 1 2 2 2 -1];
-    yc = [-1 1 1 1 0 -1 -1];
+    xc2 = [xc1 xc1 xc1 xc1];
+    yc2 = [yc1 yc1 + 6 yc1 + 12 yc1 + 18];
+
+    xc3 = xc2 + 12;
+    yc3 = yc2;
+
+    xc = [xc2 xc3];
+    yc = [yc2 yc3];
 
     %% Nodes & Adj
     k = 1;
