@@ -10,10 +10,9 @@ close
 addpath('..\common');
 addpath('..\models');
 
-
 % settings
-model.dist_type = 'euclidean';          % '4adj'  '8adj'
-model.adj_type = '8adj';                % euclidean manhattan;
+model.dist_type = 'euclidean'; % '4adj' '8adj'
+model.adj_type = '8adj'; % euclidean manhattan;
 
 % create model
 % createModel_mh_1 createModel_mh_2 createModel_mh_ctest
@@ -37,28 +36,29 @@ robot_count = model.robot_count;
 % empS.solChar = empChar;
 empS.smoothness = 0;
 empS.nodes = [];
-empS.coords=[];
-empS.dirs=[];
-empS.cost=0;
-empS.len=0;
-empS.x=[];
-empS.y=[];
-empS.n=0;
+empS.coords = [];
+empS.dirs = [];
+empS.cost = 0;
+empS.len = 0;
+empS.x = [];
+empS.y = [];
+empS.n = 0;
 
 % sol = repmat(empS, robot_count, 1);
-msol= repmat(empS, robot_count, 1);
+msol = repmat(empS, robot_count, 1);
 
 %% Astar MRPP
 %   MRPP_2    MRPP_1     MRPP_simple
 tic
 paths = MRPP_2(model);
-pTime=toc;
+pTime = toc;
 sol = paths;
-for nr=1:robot_count
+
+for nr = 1:robot_count
     sol(nr).n = nr;
     sol(nr).len = numel(sol(nr).nodes);
-    sol(nr).x = sol(nr).coords(:,1);
-    sol(nr).y = sol(nr).coords(:,2);
+    sol(nr).x = sol(nr).coords(:, 1);
+    sol(nr).y = sol(nr).coords(:, 2);
     sol(nr).cost = calCostL(sol(nr).coords);
     %     [sol(nr).cost, sol(nr).solChar] = calCostLinear(model, sol(nr).coords);
     sol(nr).smoothness = calSmoothness(sol(nr).coords);
@@ -100,8 +100,8 @@ collisionsCheck(paths, robot_count)
 % disp(['max operation time = ' num2str(max_operation_time)])
 % disp(['tot operation time = ' num2str(tot_operation_time)])
 
-disp(num2str(round(total_cost,2)))
-disp(num2str(round(total_pTime,3)))
+disp(num2str(round(total_cost, 2)))
+disp(num2str(round(total_pTime, 3)))
 disp(num2str(total_smoothness))
 disp(num2str(max_operation_time))
 disp(num2str(tot_operation_time))
