@@ -252,7 +252,7 @@ function Model = createModel_mrdsl_2(Model)
     RHS = inf(robotCount, Nodes.count);
     RHS = mat2cell(RHS, ones(1, robotCount), Nodes.count);
 
-    %% save model
+    %% save Model
     Model.Nodes = Nodes;
     Model.Robot = Robot;
     Model.Obst = Obst;
@@ -264,7 +264,7 @@ function Model = createModel_mrdsl_2(Model)
     Model.GV = GV;
     Model.G = G;
 
-    %% plot model
-    % plotModel(model);
+    %% plot Model
+    % plotModel(Model);
 
 end

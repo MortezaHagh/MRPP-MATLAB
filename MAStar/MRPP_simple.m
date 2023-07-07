@@ -1,11 +1,11 @@
-function paths = MRPP_simple(model)
+function paths = MRPP_simple(Model)
     % MAstar, with time in open list
     % with stall node
 
     % Initialization and Parameters
-    [closed, open, topnodes, robo, paths] = initialization_mh(model);
+    [closed, open, topnodes, robo, paths] = initialization_mh(Model);
 
-    robot_count = model.robot_count;
+    robot_count = Model.robot_count;
     ot_ind = zeros(robot_count, 1); % open_top_ind
 
     %% Start Algorithm
@@ -24,10 +24,10 @@ function paths = MRPP_simple(model)
             if MissionFlag(nr)
 
                 % finding neighbors (successors)
-                if strcmp(model.adj_type, '4adj')
-                    neighbors = neighbors4(topnodes(nr), closed(nr), model, nr);
-                elseif strcmp(model.adj_type, '8adj')
-                    neighbors = neighbors8(topnodes(nr), closed(nr), model, nr);
+                if strcmp(Model.adj_type, '4adj')
+                    neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
+                elseif strcmp(Model.adj_type, '8adj')
+                    neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
                 end
 
                 % update or extend open list with the successor nodes
@@ -55,7 +55,7 @@ function paths = MRPP_simple(model)
 
     %% Optimal Path
     for nr = 1:robot_count
-        paths(nr) = optimalPath_simple(model, open(nr), isPath, nr);
+        paths(nr) = optimalPath_simple(Model, open(nr), isPath, nr);
     end
 
 end

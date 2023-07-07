@@ -19,7 +19,7 @@ Model = createModelFromExcel(Model);
 %     disp('Not Feasible!')
 % end
 
-% % save model
+% % save Model
 % save('Model','Model')
 
 % Plot

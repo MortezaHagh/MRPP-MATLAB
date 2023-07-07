@@ -11,20 +11,20 @@ addpath('..\common');
 addpath('..\models');
 
 % settings
-model.dist_type = 'euclidean'; % '4adj' '8adj'
-model.adj_type = '8adj'; % euclidean manhattan;
+Model.dist_type = 'euclidean'; % '4adj' '8adj'
+Model.adj_type = '8adj'; % euclidean manhattan;
 
-% create model
+% create Model
 % createModel_mh_1 createModel_mh_2 createModel_mh_ctest
-model = createModel_mh_ctest(model);
-model.msc = 100;
+Model = createModel_mh_ctest(Model);
+Model.msc = 100;
 
 % % 45r_2
-% model.robo(26).targetNode = 21;
-% model.robo(26).xt = 9;
-% model.robo(26).yt = 1;
+% Model.robo(26).targetNode = 21;
+% Model.robo(26).xt = 9;
+% Model.robo(26).yt = 1;
 
-robot_count = model.robot_count;
+robot_count = Model.robot_count;
 
 % empty sol char structure
 % empChar.path_length = 0;
@@ -44,12 +44,11 @@ empS.y = [];
 empS.n = 0;
 
 % sol = repmat(empS, robot_count, 1);
-msol = repmat(empS, robot_count, 1);
 
 %% Astar MRPP
 %   MRPP_2    MRPP_1     MRPP_simple
 tic
-paths = MRPP_2(model);
+paths = MRPP_2(Model);
 pTime = toc;
 sol = paths;
 
@@ -59,7 +58,7 @@ for nr = 1:robot_count
     sol(nr).x = sol(nr).coords(:, 1);
     sol(nr).y = sol(nr).coords(:, 2);
     sol(nr).cost = calCostL(sol(nr).coords);
-    %     [sol(nr).cost, sol(nr).solChar] = calCostLinear(model, sol(nr).coords);
+    %     [sol(nr).cost, sol(nr).solChar] = calCostLinear(Model, sol(nr).coords);
     sol(nr).smoothness = calSmoothness(sol(nr).coords);
 end
 
@@ -86,12 +85,12 @@ disp(num2str(tot_operation_time))
 % end
 
 % % plot solution
-plotModel(model)
+plotModel(Model)
 Color = hsv(robot_count);
-plotSolution(sol, model, Color) % plot paths
-% plotAnimation_1(sol, model, Color)    % animated points and paths, in turn.
-% plotAnimation_2(sol, model, Color)      % animated points with tale! concurrent.
-% plotAnimation_3(sol, model, Color)    % animated points and paths, concurrent.
+plotSolution(sol, Model, Color) % plot paths
+% plotAnimation_1(sol, Model, Color)    % animated points and paths, in turn.
+% plotAnimation_2(sol, Model, Color)      % animated points with tale! concurrent.
+% plotAnimation_3(sol, Model, Color)    % animated points and paths, concurrent.
 
 %% clear temporal data
 clear i  nr Color temp_time pp_time empS empChar mod_paths dist_type adj_type

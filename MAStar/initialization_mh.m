@@ -1,14 +1,14 @@
-function [closed, open, topnodes, robo, paths, closed_init] = initialization_mh(model)
+function [closed, open, topnodes, robo, paths, closed_init] = initialization_mh(Model)
 
     % Initialization and Parameters
 
     % nodes & obstacles
-    obstNode = model.obstNode;
-    num_Of_Obs = model.numOfObs;
+    obstNode = Model.obstNode;
+    num_Of_Obs = Model.numOfObs;
 
     % robots
-    robo = model.robo;
-    robot_count = model.robot_count;
+    robo = Model.robo;
+    robot_count = Model.robot_count;
 
     % closed structure
     cemp.count = 0;
@@ -46,7 +46,7 @@ function [closed, open, topnodes, robo, paths, closed_init] = initialization_mh(
         topnode.pnode = robo(nr).startNode;
         topnode.dir = robo(nr).dir;
         topnode.cost_g = 0;
-        cost_h = calDistance(robo(nr).xs, robo(nr).ys, robo(nr).xt, robo(nr).yt, model.dist_type) * 2;
+        cost_h = calDistance(robo(nr).xs, robo(nr).ys, robo(nr).xt, robo(nr).yt, Model.dist_type) * 2;
         topnode.cost_f = topnode.cost_g + cost_h;
         topnode.time = 0;
         topnode.tag = 1;

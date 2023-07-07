@@ -157,7 +157,7 @@ function Model = createModelFromExcel(Model)
     RHS = inf(robotCount, Nodes.count);
     RHS = mat2cell(RHS, ones(1, robotCount), Nodes.count);
 
-    %% save model
+    %% save Model
     Model.Nodes = Nodes;
     Model.Robot = Robot;
     Model.Obst2 = Obst2;
@@ -170,7 +170,7 @@ function Model = createModelFromExcel(Model)
     Model.GV = GV;
     Model.G = G;
 
-    %% plot model
-    % plotModel(model);
+    %% plot Model
+    % plotModel(Model);
 
 end

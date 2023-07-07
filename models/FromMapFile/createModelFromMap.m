@@ -1,5 +1,5 @@
 function Model = createModelFromMap(MapInput, Model)
-    % Create model from Map
+    % Create Model from Map
 
     %% Map Size
     [H, W] = size(MapInput);
@@ -113,7 +113,7 @@ function Model = createModelFromMap(MapInput, Model)
     RHS = inf(Model.robotCount, Nodes.count);
     RHS = mat2cell(RHS, ones(1, Model.robotCount), Nodes.count);
 
-    %% save model
+    %% save Model
     Model.Nodes = Nodes;
     Model.Obst = Obst;
     Model.Map = Map;

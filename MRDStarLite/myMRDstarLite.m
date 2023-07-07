@@ -67,7 +67,7 @@ function [Model, Robots, Paths] = myMRDstarLite(Model)
         Paths(iRobot).dirs = nodes2dirs(Paths(iRobot).nodeNumbers, Model);
     end
 
-    % % update model
+    % % update Model
     % new_obst_xy = Model.Nodes.cord(:,3);
     % Model.Obst.x = [Model.Obst.x, new_obst_xy(1,:)];
     % Model.Obst.y = [Model.Obst.y, new_obst_xy(2,:)];

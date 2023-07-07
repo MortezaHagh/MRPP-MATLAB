@@ -15,7 +15,7 @@ Model.robotCount = 10;
 % create map from file
 [Map, Name] = createMapFromFile('random-64-64-10.map');
 
-% create model from map
+% create Model from map
 Model = createModelFromMap(Map, Model);
 
 % scenario
@@ -28,7 +28,7 @@ scenarios = scenarios(find(aa'), :);
 N = 1;
 
 for i = 1:N
-    % add robot to model
+    % add robot to Model
     Model = addRobotToModel(Model, scenarios);
     name = ['random-64-64_r_' num2str(Model.robotCount) '_i_' num2str(i)];
     disp(name)

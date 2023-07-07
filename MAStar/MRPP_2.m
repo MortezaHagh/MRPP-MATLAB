@@ -1,10 +1,10 @@
-function paths = MRPP_2(model)
+function paths = MRPP_2(Model)
     % with stall node & time
     % calculate path just after each reach, with stall node *
 
     % Initialization and Parameters
-    [closed, open, topnodes, robots, paths, closed_init] = initialization_mh(model);
-    robot_count = model.robot_count;
+    [closed, open, topnodes, robots, paths, closed_init] = initialization_mh(Model);
+    robot_count = Model.robot_count;
     ot_ind = zeros(robot_count, 1); % open_top_ind
     np_count = zeros(robot_count, 1); % no_path_count
 
@@ -18,7 +18,7 @@ function paths = MRPP_2(model)
     robot_list = 1:robot_count;
 
     while any(MissionFlag)
-        priority_list = priority(robots, robot_list, model, [topnodes.node]);
+        priority_list = priority(robots, robot_list, Model, [topnodes.node]);
 
         for nr = priority_list
             %     for nr=1:robot_count
@@ -28,10 +28,10 @@ function paths = MRPP_2(model)
             if MissionFlag(nr)
 
                 % finding neighbors (successors)
-                if strcmp(model.adj_type, '4adj')
-                    neighbors = neighbors4(topnodes(nr), closed(nr), model, nr);
-                elseif strcmp(model.adj_type, '8adj')
-                    neighbors = neighbors8(topnodes(nr), closed(nr), model, nr);
+                if strcmp(Model.adj_type, '4adj')
+                    neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
+                elseif strcmp(Model.adj_type, '8adj')
+                    neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
                 end
 
                 % update or extend open list with the successor nodes
@@ -41,10 +41,10 @@ function paths = MRPP_2(model)
                 ot_ind(nr) = selectTopNode_1(open, robots(nr).targetNode, topnodes(nr).dir, nr);
 
                 % if no path exists to the Target -> try stall nodes
-                if ot_ind(nr) == -1 && np_count(nr) < model.msc
+                if ot_ind(nr) == -1 && np_count(nr) < Model.msc
                     closed(nr) = closed_init(nr);
                     [ot_ind(nr), np_count(nr), open] = addStallNodes(np_count(nr), open ...
-                        , robots(nr).targetNode, topnodes(nr).dir, nr, model.msc);
+                        , robots(nr).targetNode, topnodes(nr).dir, nr, Model.msc);
                 end
 
                 % update open & close with new topNode
@@ -66,7 +66,7 @@ function paths = MRPP_2(model)
 
                 if MissionFlag(nr) == false
                     % Optimal Path for robot nr & update open(nr)
-                    paths(nr) = optimalPath_1(model, open(nr), isPath, nr);
+                    paths(nr) = optimalPath_1(Model, open(nr), isPath, nr);
                     open(nr) = finalOpen(paths(nr));
                 end
 

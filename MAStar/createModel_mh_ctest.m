@@ -1,4 +1,4 @@
-function model = createModel_mh_ctest(model)
+function Model = createModel_mh_ctest(Model)
 
     %% Algorithm
     % max_stall_count
@@ -79,24 +79,24 @@ function model = createModel_mh_ctest(model)
 
     end
 
-    %% save model
-    model.robot_count = robot_count;
-    model.obstNode = obstNode;
-    model.xc = xc; model.yc = yc;
-    model.numOfObs = numel(xc);
-    model.limArea = limArea;
-    model.obst_r = obst_r;
-    model.nodes = Nodes;
-    model.xmin = xmin;
-    model.xmax = xmax;
-    model.ymin = ymin;
-    model.ymax = ymax;
-    model.adj = adj;
-    model.robo = robo;
-    model.msc = msc;
+    %% save Model
+    Model.robot_count = robot_count;
+    Model.obstNode = obstNode;
+    Model.xc = xc; Model.yc = yc;
+    Model.numOfObs = numel(xc);
+    Model.limArea = limArea;
+    Model.obst_r = obst_r;
+    Model.nodes = Nodes;
+    Model.xmin = xmin;
+    Model.xmax = xmax;
+    Model.ymin = ymin;
+    Model.ymax = ymax;
+    Model.adj = adj;
+    Model.robo = robo;
+    Model.msc = msc;
 
-    %% plot model
+    %% plot Model
     % close
-    % plotModel(model);
+    % plotModel(Model);
 
 end

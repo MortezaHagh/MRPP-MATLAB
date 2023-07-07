@@ -36,15 +36,15 @@ function isFeasible = checkFeasibility(Model)
     isFeasible2 = 1;
 
     for iRobot = 1:Model.robotCount
-        model = Model;
-        model.Robot = Robots(iRobot);
-        model.Obst.nodeNumber(model.Obst.count + iRobot) = [];
-        model.Obst.x(model.Obst.count + iRobot) = [];
-        model.Obst.y(model.Obst.count + iRobot) = [];
-        model.Obst.count = model.Obst.count - 1 + Model.robotCount;
+        Model = Model;
+        Model.Robot = Robots(iRobot);
+        Model.Obst.nodeNumber(Model.Obst.count + iRobot) = [];
+        Model.Obst.x(Model.Obst.count + iRobot) = [];
+        Model.Obst.y(Model.Obst.count + iRobot) = [];
+        Model.Obst.count = Model.Obst.count - 1 + Model.robotCount;
 
         try
-            myAStar(model);
+            myAStar(Model);
         catch ME
             isFeasible = false;
 

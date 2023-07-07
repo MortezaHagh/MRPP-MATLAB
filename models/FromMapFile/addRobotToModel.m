@@ -27,7 +27,7 @@ function Model = addRobotToModel(Model, scenarios)
         Robot(iRobot).targetNode = (Robot(iRobot).yt - Model.Map.yMin) * (Model.Map.nX) + Robot(iRobot).xt - Model.Map.xMin + 1;
     end
 
-    %% save model
+    %% save Model
     Model.Robot = Robot;
 
 end
