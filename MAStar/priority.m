@@ -6,7 +6,7 @@ function sorted_list = priority(robots, robot_list, Model, nodes)
     for i = robot_list
         xyp = Model.Nodes.cord(:, nodes(i));
         xyt = Model.Nodes.cord(:, robots(i).targetNode);
-        h(j) = calDistance(xyp(1), xyp(2), xyt(1), xyt(2), Model.dist_type);
+        h(j) = calDistance(xyp(1), xyp(2), xyt(1), xyt(2), Model.distType);
         j = j + 1;
     end
 

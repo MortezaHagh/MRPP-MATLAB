@@ -8,9 +8,9 @@ function Model = createModel_mh_ctest(Model)
     robot_count = 3;
 
     % dir: direction
-    Robots(1).dir = -pi/2;
-    Robots(2).dir = -pi/2;
-    Robots(3).dir = -pi/2;
+    Robots(1).dir = -pi / 2;
+    Robots(2).dir = -pi / 2;
+    Robots(3).dir = -pi / 2;
 
     % start & goal
     Robots(1).xs = 1; Robots(1).ys = 0;
@@ -63,6 +63,8 @@ function Model = createModel_mh_ctest(Model)
         end
 
     end
+
+    Nodes.count = k - 1;
 
     % obstacle node numbers
     obstNode = zeros(1, length(xc));

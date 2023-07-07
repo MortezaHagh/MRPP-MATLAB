@@ -73,4 +73,4 @@ plotSolution(Sol, Model, Color) % plot paths
 % plotAnimation_3(Sol, Model, Color)    % animated points and paths, concurrent.
 
 %% clear temporal data
-clear i  nr Color temp_time pp_time empS empChar mod_paths dist_type adj_type
+clear i  nr Color temp_time pp_time empS empChar mod_paths distType adjType

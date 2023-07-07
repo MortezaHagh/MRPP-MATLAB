@@ -10,13 +10,15 @@ close
 addpath('..\common');
 addpath('..\models');
 
-% settings
-Model.dist_type = 'manhattan';  % euclidean manhattan;
-Model.adj_type = '4adj';        % '4adj' '8adj'
+%% settings
+Model.distType = 'manhattan';  % euclidean manhattan;
+Model.adjType = '4adj';        % '4adj' '8adj'
 
-% create Model
+%% create Model
 % createModel_mh_1 createModel_mh_2 createModel_mh_ctest
-Model = createModel_mh_2(Model);
+Model = createModel_mh_1(Model);
+Model = createModelAstar(Model);
+
 Model.msc = 100;
 
 % % 45r_2
@@ -26,6 +28,7 @@ Model.msc = 100;
 
 robot_count = Model.robot_count;
 
+%% Preallocation
 % empty sol char structure
 % empChar.path_length = 0;
 % empChar.isFeasible = 0;
@@ -87,10 +90,10 @@ disp(['tot_operation_time: ' num2str(tot_operation_time)])
 % % plot solution
 plotModelMulti(Model)
 Color = hsv(robot_count);
-% plotSolution(sol, Model, Color) % plot paths
+plotSolution(sol, Model, Color) % plot paths
 % plotAnimation_1(sol, Model, Color)    % animated points and paths, in turn.
-plotAnimation_2(sol, Model, Color)      % animated points with tale! concurrent.
+% plotAnimation_2(sol, Model, Color)      % animated points with tale! concurrent.
 % plotAnimation_3(sol, Model, Color)    % animated points and paths, concurrent.
 
 %% clear temporal data
-clear i  nr Color temp_time pp_time empS empChar mod_paths dist_type adj_type
+clear i  nr Color temp_time pp_time empS empChar mod_paths distType adjType

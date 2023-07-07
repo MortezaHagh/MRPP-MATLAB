@@ -24,9 +24,9 @@ function paths = MRPP_1(Model)
             if MissionFlag(nr)
 
                 % finding neighbors (successors)
-                if strcmp(Model.adj_type, '4adj')
+                if strcmp(Model.adjType, '4adj')
                     neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
-                elseif strcmp(Model.adj_type, '8adj')
+                elseif strcmp(Model.adjType, '8adj')
                     neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
                 end
 

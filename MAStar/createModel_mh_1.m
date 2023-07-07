@@ -72,6 +72,8 @@ function Model = createModel_mh_1(Model)
 
     end
 
+    Nodes.count = k - 1;
+
     % obstacle node numbers
     obstNode = zeros(1, length(xc));
 

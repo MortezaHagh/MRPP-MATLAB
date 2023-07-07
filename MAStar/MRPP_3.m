@@ -32,9 +32,9 @@ function paths = MRPP_3(Model)
                 if MissionFlag(nr)
 
                     % finding neighbors (successors)
-                    if strcmp(Model.adj_type, '4adj')
+                    if strcmp(Model.adjType, '4adj')
                         neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
-                    elseif strcmp(Model.adj_type, '8adj')
+                    elseif strcmp(Model.adjType, '8adj')
                         neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
                     end
 
@@ -98,7 +98,7 @@ function paths = MRPP_3(Model)
             topnode.pnode = Model.Robots(robo).startNode;
             topnode.dir = Model.Robots(robo).dir;
             topnode.cost_g = 0;
-            cost_h = calDistance(Model.Robots(robo).xs, Model.Robots(robo).ys, Model.Robots(robo).xt, Model.Robots(robo).yt, Model.dist_type) * 2;
+            cost_h = calDistance(Model.Robots(robo).xs, Model.Robots(robo).ys, Model.Robots(robo).xt, Model.Robots(robo).yt, Model.distType) * 2;
             topnode.cost_f = topnode.cost_g + cost_h;
             topnode.time = 0;
             topnode.tag = 1;

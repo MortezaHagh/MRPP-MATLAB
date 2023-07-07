@@ -11,32 +11,32 @@ function Model = createModel_mh_2(Model)
     Robots(1).dir = 0;
     Robots(2).dir = -pi;
     Robots(3).dir = -pi;
-    Robots(4).dir = pi/2;
-    Robots(5).dir = pi/2;
-    Robots(6).dir = pi/2;
+    Robots(4).dir = pi / 2;
+    Robots(5).dir = pi / 2;
+    Robots(6).dir = pi / 2;
     Robots(7).dir = 0;
-    Robots(8).dir = pi/2;
-    Robots(9).dir = -pi/2;
+    Robots(8).dir = pi / 2;
+    Robots(9).dir = -pi / 2;
     Robots(10).dir = 0;
-    Robots(11).dir = pi/2;
-    Robots(12).dir = pi/2;
-    Robots(13).dir = pi/2;
-    Robots(14).dir = pi/2;
-    Robots(15).dir = pi/2;
-    Robots(16).dir = pi/2;
-    Robots(17).dir = pi/2;
-    Robots(18).dir = pi/2;
-    Robots(19).dir = -pi/2;
-    Robots(20).dir = -pi/2;
-    Robots(21).dir = -pi/2;
+    Robots(11).dir = pi / 2;
+    Robots(12).dir = pi / 2;
+    Robots(13).dir = pi / 2;
+    Robots(14).dir = pi / 2;
+    Robots(15).dir = pi / 2;
+    Robots(16).dir = pi / 2;
+    Robots(17).dir = pi / 2;
+    Robots(18).dir = pi / 2;
+    Robots(19).dir = -pi / 2;
+    Robots(20).dir = -pi / 2;
+    Robots(21).dir = -pi / 2;
     Robots(22).dir = 0;
-    Robots(23).dir = pi/2;
-    Robots(24).dir = pi/2;
-    Robots(25).dir = pi/2;
-    Robots(26).dir = pi/2;
-    Robots(27).dir = pi/2;
-    Robots(28).dir = pi/2;
-    Robots(29).dir = pi/2;
+    Robots(23).dir = pi / 2;
+    Robots(24).dir = pi / 2;
+    Robots(25).dir = pi / 2;
+    Robots(26).dir = pi / 2;
+    Robots(27).dir = pi / 2;
+    Robots(28).dir = pi / 2;
+    Robots(29).dir = pi / 2;
 
     % start & goal
     Robots(1).xs = 1; Robots(1).ys = 4;
@@ -175,6 +175,8 @@ function Model = createModel_mh_2(Model)
         end
 
     end
+
+    Nodes.count = k - 1;
 
     % obstacle node numbers
     obstNode = zeros(1, length(xc));
