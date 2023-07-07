@@ -90,7 +90,7 @@ while ~success && ttt<5
         topnode.pnode=model.robo(robo).startNode;
         topnode.dir = model.robo(robo).dir;
         topnode.cost_g = 0;
-        cost_h = Distance(model.robo(robo).xs, model.robo(robo).ys, model.robo(robo).xt, model.robo(robo).yt, model.dist_type)*2;
+        cost_h = calDistance(model.robo(robo).xs, model.robo(robo).ys, model.robo(robo).xt, model.robo(robo).yt, model.dist_type)*2;
         topnode.cost_f = topnode.cost_g + cost_h;
         topnode.time = 0;
         topnode.tag=1;

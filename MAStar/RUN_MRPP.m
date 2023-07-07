@@ -59,9 +59,9 @@ for nr=1:robot_count
     sol(nr).len = numel(sol(nr).nodes);
     sol(nr).x = sol(nr).coords(:,1);
     sol(nr).y = sol(nr).coords(:,2);
-    sol(nr).cost = costL(sol(nr).coords);
-    %     [sol(nr).cost, sol(nr).solChar] = costLinear(model, sol(nr).coords);
-    sol(nr).smoothness = smoothness(sol(nr).coords);
+    sol(nr).cost = calCostL(sol(nr).coords);
+    %     [sol(nr).cost, sol(nr).solChar] = calCostLinear(model, sol(nr).coords);
+    sol(nr).smoothness = calSmoothness(sol(nr).coords);
 end
 
 % sol total cost & smoothness & pTime
@@ -83,8 +83,8 @@ collisionsCheck(paths, robot_count)
 %     msol(nr).coords = mpath.coords;
 %     msol(nr).x = msol(nr).coords(:,1);
 %     msol(nr).y = msol(nr).coords(:,2);
-%     msol(nr).smoothness = smoothness(msol(nr).coords);
-%     [msol(nr).cost, msol(nr).solChar] = costLinear(model, msol(nr).coords);
+%     msol(nr).smoothness = calSmoothness(msol(nr).coords);
+%     [msol(nr).cost, msol(nr).solChar] = calCostLinear(model, msol(nr).coords);
 % end
 %
 % % Msol total cost & smoothness & pTime

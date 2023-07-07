@@ -55,7 +55,7 @@ Robot.Start.nodeNumber = newStartNode;
 Robot.path(end+1) = Robot.Start.nodeNumber;
 xy_ss = Model.Nodes.cord(:,Robot.sLast);
 xy_sl = Model.Nodes.cord(:,Robot.Start.nodeNumber);
-Robot.km = Robot.km +Distance(xy_sl(1), xy_sl(2), xy_ss(1), xy_ss(2), Model.distType);
+Robot.km = Robot.km +calDistance(xy_sl(1), xy_sl(2), xy_ss(1), xy_ss(2), Model.distType);
 Robot.sLast = Robot.Start.nodeNumber;
 
 if Robot.Start.nodeNumber~=Robot.sGoal

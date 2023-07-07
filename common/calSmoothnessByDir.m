@@ -1,4 +1,4 @@
-function smoothness = smoothness_by_dir(sol)
+function smoothness = calSmoothnessByDir(sol)
 
 dn = diff(sol.nodeNumbers);
 stall = dn==0;

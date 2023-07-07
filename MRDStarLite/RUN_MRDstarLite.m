@@ -38,10 +38,10 @@ Sol = Paths;
 for iRobot=1:robotCount
     Sol(iRobot).x = Sol(iRobot).coords(:,1);
     Sol(iRobot).y = Sol(iRobot).coords(:,2);
-    Sol(iRobot).cost = costL(Sol(iRobot).coords);
+    Sol(iRobot).cost = calCostL(Sol(iRobot).coords);
     Sol(iRobot).len = numel(Sol(iRobot).nodeNumbers);
     Sol(iRobot).makespan = numel(Sol(iRobot).nodeNumbers);
-    Sol(iRobot).smoothness = smoothness_by_dir(Sol(iRobot));
+    Sol(iRobot).smoothness = calSmoothnessByDir(Sol(iRobot));
     
 end
 

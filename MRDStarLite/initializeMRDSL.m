@@ -43,7 +43,7 @@ for iRobot=1:robotCount
     
     % set the starting node as the first node
     TopNode.nodeNumber=Robots(iRobot).targetNode;
-    TopNode.hCost = Distance(Robots(iRobot).xs, Robots(iRobot).ys, Robots(iRobot).xt, Robots(iRobot).yt, Model.distType);
+    TopNode.hCost = calDistance(Robots(iRobot).xs, Robots(iRobot).ys, Robots(iRobot).xt, Robots(iRobot).yt, Model.distType);
     TopNode.key = [TopNode.hCost; 0];
     TopNode.ind=1;
     
