@@ -53,7 +53,7 @@ function Model = createModelRand(Model, nObst, nRobot)
 
     Obsts.r = 0.25;
 
-    %% robots data
+    %% Robots data
     r.dir = 0;
     r.xs = 0;
     r.ys = 0;

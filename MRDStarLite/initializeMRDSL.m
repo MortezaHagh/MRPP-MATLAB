@@ -6,7 +6,7 @@ function [GV, Open, Robots, Paths, nodesToUpdate] = initializeMRDSL(Model)
     GV = Model.GV;
     RHS = Model.RHS;
 
-    % robots
+    % Robots
     Robots = Model.Robots;
     robotCount = Model.robotCount;
 
@@ -50,7 +50,7 @@ function [GV, Open, Robots, Paths, nodesToUpdate] = initializeMRDSL(Model)
         Open(iRobot).count = 1;
         Open(iRobot).List(1) = topNode;
 
-        % robots: G, RHS, path, sLast, Start, sGoal
+        % Robots: G, RHS, path, sLast, Start, sGoal
         RHS{iRobot}(topNode.nodeNumber) = 0;
         Robots(iRobot).km = 0;
         Robots(iRobot).csp_flag = 1;

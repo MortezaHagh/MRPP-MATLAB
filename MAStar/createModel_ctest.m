@@ -4,7 +4,7 @@ function Model = createModel_ctest(Model)
     % max_stall_count
     msc = 10;
 
-    %% robots
+    %% Robots
     robotCount = 3;
 
     % dir: direction

@@ -1,5 +1,5 @@
 function plotAnimation_3(Sol, Model, Color)
-    % animated points and paths, concurrent.
+    % animated points and Paths, concurrent.
 
     robotCount = Model.robotCount;
 

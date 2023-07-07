@@ -1,5 +1,5 @@
 function sortedList = calculatePriority(Robots, robotList, Model)
-    % sort robots based on their calDistance from target nodes
+    % sort Robots based on their calDistance from target nodes
 
     h = zeros(numel(robotList), 1);
     j = 1;

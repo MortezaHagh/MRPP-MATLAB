@@ -42,7 +42,7 @@ function [Model, Robots, Paths] = myMRDstarLite(Model)
         if isFailed
 
             if k == 2
-                disp(' **** Failed to plan paths for all robots! ****');
+                disp(' **** Failed to plan Paths for all Robots! ****');
                 break
             else
                 k = k + 1;
@@ -58,7 +58,7 @@ function [Model, Robots, Paths] = myMRDstarLite(Model)
 
     end
 
-    %% optimal paths coordinations, nodes, directions
+    %% optimal Paths coordinations, nodes, directions
 
     for iRobot = 1:robotCount
         Paths(iRobot).iRobot = iRobot;

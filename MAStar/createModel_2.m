@@ -4,7 +4,7 @@ function Model = createModel_2(Model)
     % max_stall_count
     msc = 10;
 
-    %% robots
+    %% Robots
     robotCount = 10;
 
     % dir: direction

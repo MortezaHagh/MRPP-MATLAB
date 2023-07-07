@@ -17,7 +17,7 @@ function Model = createModelFromExcel(Model)
     Map.nX = Map.xMax - Map.xMin + 1;
     Map.nY = Map.yMax - Map.yMin + 1;
 
-    %% robots data
+    %% Robots data
     robotCount = data(1, 2);
     Model.robotCount = robotCount;
 

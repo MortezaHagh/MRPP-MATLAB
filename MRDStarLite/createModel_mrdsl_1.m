@@ -11,7 +11,7 @@ function Model = createModel_mrdsl_1(Model)
     Map.nX = Map.xMax - Map.xMin + 1;
     Map.nY = Map.yMax - Map.yMin + 1;
 
-    %% robots data
+    %% Robots data
     robotCount = 4;
     Model.robotCount = robotCount;
 

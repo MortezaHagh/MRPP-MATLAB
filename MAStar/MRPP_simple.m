@@ -1,9 +1,9 @@
-function paths = MRPP_simple(Model)
+function Paths = MRPP_simple(Model)
     % MAstar, with time in Open list
     % with stall node
 
     % Initialization and Parameters
-    [Closed, Open, topnodes, robo, paths] = initializationMh(Model);
+    [Closed, Open, topnodes, robo, Paths] = initializationMh(Model);
 
     robotCount = Model.robotCount;
     oTopInd = zeros(robotCount, 1); % openTopInd
@@ -57,7 +57,7 @@ function paths = MRPP_simple(Model)
 
     %% Optimal Path
     for nr = 1:robotCount
-        paths(nr) = optimalPath_simple(Model, Open(nr), isPath, nr);
+        Paths(nr) = optimalPath_simple(Model, Open(nr), isPath, nr);
     end
 
 end

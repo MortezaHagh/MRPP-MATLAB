@@ -1,4 +1,4 @@
-function [Closed, Open, topnodes, Robots, paths, closedInit] = initializationMh(Model)
+function [Closed, Open, topnodes, Robots, Paths, closedInit] = initializationMh(Model)
 
     % Initialization and Parameters
 
@@ -6,7 +6,7 @@ function [Closed, Open, topnodes, Robots, paths, closedInit] = initializationMh(
     obstNode = Model.obstNode;
     obstCount = Model.obstCount;
 
-    % robots
+    % Robots
     Robots = Model.Robots;
     robotCount = Model.robotCount;
 
@@ -24,7 +24,7 @@ function [Closed, Open, topnodes, Robots, paths, closedInit] = initializationMh(
     p.coords = [];
     p.nodeNumbers = [];
     p.dirs = [];
-    paths = repmat(p, robotCount, 1);
+    Paths = repmat(p, robotCount, 1);
 
     %%% initialization
     for nr = 1:robotCount

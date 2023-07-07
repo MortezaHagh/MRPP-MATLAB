@@ -7,7 +7,7 @@ clc
 clear
 close
 
-% adding paths
+% adding Paths
 addpath('..\common');
 addpath('..\models');
 
@@ -53,7 +53,7 @@ total_cost = sum([Sol.cost]);
 sum_of_costs = sum([Sol.len]);
 total_smoothness = sum([Sol.smoothness]);
 
-%% paths collision check
+%% Paths collision check
 collisionsCheck(Paths, robotCount)
 
 %% display data & plot solution
@@ -67,10 +67,10 @@ disp(['total_runTime: ' num2str(round(total_runTime, 3))])
 % plot solution
 Color = hsv(robotCount);
 plotModelMulti(Model)
-plotSolution(Sol, Model, Color) % plot paths
-% plotAnimation_1(Sol, Model, Color)    % animated points and paths, in turn.
+plotSolution(Sol, Model, Color) % plot Paths
+% plotAnimation_1(Sol, Model, Color)    % animated points and Paths, in turn.
 % plotAnimation_2(Sol, Model, Color)      % animated points with tale! concurrent.
-% plotAnimation_3(Sol, Model, Color)    % animated points and paths, concurrent.
+% plotAnimation_3(Sol, Model, Color)    % animated points and Paths, concurrent.
 
 %% clear temporal data
 clear i  nr Color temp_time pp_time empS empChar mod_paths distType adjType

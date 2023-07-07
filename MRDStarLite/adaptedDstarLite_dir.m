@@ -121,7 +121,7 @@ end
 
 function [nodesToUpdate, Robot] = updateData(nodes, Robot, Model)
 
-    % nodes to update for other robots
+    % nodes to update for other Robots
     nodesToUpdate3 = setxor(nodes, Robot.prevPath);
     Robot.prevPath = nodes;
     neighbors = [];

@@ -6,7 +6,7 @@ function isFeasible = checkFeasibility(Model)
     Robots = Model.Robots;
     isFeasible = true;
 
-    % not considering other robots
+    % not considering other Robots
     for iRobot = 1:Model.robotCount
         Model.Robots = Robots(iRobot);
 
@@ -28,7 +28,7 @@ function isFeasible = checkFeasibility(Model)
 
     end
 
-    % not considering other robots
+    % not considering other Robots
     Model.Obsts.nodeNumber = [Model.Obsts.nodeNumber [Robots.targetNode]];
     Model.Obsts.x = [Model.Obsts.x [Robots.xt]];
     Model.Obsts.y = [Model.Obsts.y [Robots.yt]];

@@ -1,4 +1,4 @@
-function [t, robo] = collisionsCheck2(paths, robotCount)
+function [t, robo] = collisionsCheck2(Paths, robotCount)
 
     t = 0;
     robo = 0;
@@ -6,7 +6,7 @@ function [t, robo] = collisionsCheck2(paths, robotCount)
     pl = zeros(1, robotCount);
 
     for j = 1:robotCount
-        pl(j) = numel(paths(j).nodeNumbers);
+        pl(j) = numel(Paths(j).nodeNumbers);
     end
 
     [~, ind] = sort(pl, 'descend');
@@ -22,12 +22,12 @@ function [t, robo] = collisionsCheck2(paths, robotCount)
 
                 if k <= jl
 
-                    if paths(ind(i)).nodeNumbers(k) == paths(ind(j)).nodeNumbers(k)
+                    if Paths(ind(i)).nodeNumbers(k) == Paths(ind(j)).nodeNumbers(k)
                         disp(['collision type1: robot ', num2str(ind(i)) ' and robot ' num2str(ind(j)) ', in k: ' num2str(k)])
                     end
 
-                    if k < il && k < jl && (paths(ind(i)).nodeNumbers(k) == paths(ind(j)).nodeNumbers(k + 1)) ...
-                            && (paths(ind(i)).nodeNumbers(k + 1) == paths(ind(j)).nodeNumbers(k))
+                    if k < il && k < jl && (Paths(ind(i)).nodeNumbers(k) == Paths(ind(j)).nodeNumbers(k + 1)) ...
+                            && (Paths(ind(i)).nodeNumbers(k + 1) == Paths(ind(j)).nodeNumbers(k))
                         disp(['collision type2: robot ', num2str(ind(i)), ' and robot ', num2str(ind(j)), ', in k: ', num2str(k)])
                     end
 
@@ -35,7 +35,7 @@ function [t, robo] = collisionsCheck2(paths, robotCount)
 
                 if k > jl
 
-                    if paths(ind(i)).nodeNumbers(k) == paths(ind(j)).nodeNumbers(jl)
+                    if Paths(ind(i)).nodeNumbers(k) == Paths(ind(j)).nodeNumbers(jl)
                         disp(['collision type3: robot ', num2str(ind(i)) ' and robot ' num2str(ind(j)) ', in k: ' num2str(k)])
                         robo = ind(j);
                         t = 3;

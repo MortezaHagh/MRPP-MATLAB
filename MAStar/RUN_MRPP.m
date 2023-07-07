@@ -6,7 +6,7 @@ clc
 clear
 close
 
-% adding paths
+% adding Paths
 addpath('..\common');
 addpath('..\models');
 
@@ -51,9 +51,9 @@ empS.n = 0;
 %% Astar MRPP
 %   MRPP_2    MRPP_1     MRPP_simple
 tic
-paths = MRPP_2(Model);
+Paths = MRPP_2(Model);
 pTime = toc;
-sol = paths;
+sol = Paths;
 
 for nr = 1:robotCount
     sol(nr).n = nr;
@@ -72,9 +72,9 @@ total_smoothness = sum([sol.smoothness]);
 max_operation_time = max([sol.len]);
 tot_operation_time = sum([sol.len]);
 
-%% paths collision check
+%% Paths collision check
 % collision check
-collisionsCheck(paths, robotCount)
+collisionsCheck(Paths, robotCount)
 
 % disp data
 disp(['total_cost: ' num2str(round(total_cost, 2))])
@@ -90,10 +90,10 @@ disp(['tot_operation_time: ' num2str(tot_operation_time)])
 % % plot solution
 plotModelMulti(Model)
 Color = hsv(robotCount);
-plotSolution(sol, Model, Color) % plot paths
-% plotAnimation_1(sol, Model, Color)    % animated points and paths, in turn.
+plotSolution(sol, Model, Color) % plot Paths
+% plotAnimation_1(sol, Model, Color)    % animated points and Paths, in turn.
 % plotAnimation_2(sol, Model, Color)      % animated points with tale! concurrent.
-% plotAnimation_3(sol, Model, Color)    % animated points and paths, concurrent.
+% plotAnimation_3(sol, Model, Color)    % animated points and Paths, concurrent.
 
 %% clear temporal data
 clear i  nr Color temp_time pp_time empS empChar mod_paths distType adjType
