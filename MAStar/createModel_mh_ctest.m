@@ -7,10 +7,10 @@ function model = createModel_mh_ctest(model)
     %% robots
     robot_count = 3;
 
-    % dir: direction , r,l,u,d
-    robo(1).dir = int32('d');
-    robo(2).dir = int32('d');
-    robo(3).dir = int32('d');
+    % dir: direction
+    robo(1).dir = -pi/2;
+    robo(2).dir = -pi/2;
+    robo(3).dir = -pi/2;
 
     % start & goal
     robo(1).xs = 1; robo(1).ys = 0;

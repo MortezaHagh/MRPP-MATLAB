@@ -14,10 +14,10 @@ function neighbors = neighbors4(topnode, closed, model, nr)
     q2 = [-1 0; 0 1; 0 -1; 1 0];
     q3 = [0 1; 1 0; -1 0; 0 -1];
     q4 = [0 -1; 1 0; -1 0; 0 1];
-    if dir == 0 || dir == 2 * pi; qs = q1; end % int32('r') 1
-    if dir == pi || dir == -pi; qs = q2; end % int32('l') 3
-    if dir == pi / 2; qs = q3; end % int32('u') 2
-    if dir == -pi / 2 || dir == 3 * pi / 2; qs = q4; end % int32('d') 4
+    if dir == 0 || dir == 2 * pi; qs = q1; end % 0 1
+    if dir == pi || dir == -pi; qs = q2; end % -pi 3
+    if dir == pi / 2; qs = q3; end % pi/2 2
+    if dir == -pi / 2 || dir == 3 * pi / 2; qs = q4; end % -pi/2 4
 
     for k = 1:4
         % nn: new node

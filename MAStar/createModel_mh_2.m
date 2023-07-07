@@ -7,36 +7,36 @@ function model = createModel_mh_2(model)
     %% robots
     robot_count = 15;
 
-    % dir: direction , r,l,u,d
-    robo(1).dir = int32('r');
-    robo(2).dir = int32('l');
-    robo(3).dir = int32('l');
-    robo(4).dir = int32('u');
-    robo(5).dir = int32('u');
-    robo(6).dir = int32('u');
-    robo(7).dir = int32('r');
-    robo(8).dir = int32('u');
-    robo(9).dir = int32('d');
-    robo(10).dir = int32('r');
-    robo(11).dir = int32('u');
-    robo(12).dir = int32('u');
-    robo(13).dir = int32('u');
-    robo(14).dir = int32('u');
-    robo(15).dir = int32('u');
-    robo(16).dir = int32('u');
-    robo(17).dir = int32('u');
-    robo(18).dir = int32('u');
-    robo(19).dir = int32('d');
-    robo(20).dir = int32('d');
-    robo(21).dir = int32('d');
-    robo(22).dir = int32('r');
-    robo(23).dir = int32('u');
-    robo(24).dir = int32('u');
-    robo(25).dir = int32('u');
-    robo(26).dir = int32('u');
-    robo(27).dir = int32('u');
-    robo(28).dir = int32('u');
-    robo(29).dir = int32('u');
+    % dir: direction
+    robo(1).dir = 0;
+    robo(2).dir = -pi;
+    robo(3).dir = -pi;
+    robo(4).dir = pi/2;
+    robo(5).dir = pi/2;
+    robo(6).dir = pi/2;
+    robo(7).dir = 0;
+    robo(8).dir = pi/2;
+    robo(9).dir = -pi/2;
+    robo(10).dir = 0;
+    robo(11).dir = pi/2;
+    robo(12).dir = pi/2;
+    robo(13).dir = pi/2;
+    robo(14).dir = pi/2;
+    robo(15).dir = pi/2;
+    robo(16).dir = pi/2;
+    robo(17).dir = pi/2;
+    robo(18).dir = pi/2;
+    robo(19).dir = -pi/2;
+    robo(20).dir = -pi/2;
+    robo(21).dir = -pi/2;
+    robo(22).dir = 0;
+    robo(23).dir = pi/2;
+    robo(24).dir = pi/2;
+    robo(25).dir = pi/2;
+    robo(26).dir = pi/2;
+    robo(27).dir = pi/2;
+    robo(28).dir = pi/2;
+    robo(29).dir = pi/2;
 
     % start & goal
     robo(1).xs = 1; robo(1).ys = 4;
