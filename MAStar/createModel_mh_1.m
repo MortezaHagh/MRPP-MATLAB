@@ -8,19 +8,19 @@ function Model = createModel_mh_1(Model)
     robot_count = 3;
 
     % dir: direction
-    Robot(randsample([0 90 180 270], 1));(1).dir = -pi/2;
-    Robot(randsample([0 90 180 270], 1));(2).dir = -pi/2;
-    Robot(randsample([0 90 180 270], 1));(3).dir = -pi/2;
+    Robots(1).dir = -pi / 2;
+    Robots(2).dir = -pi / 2;
+    Robots(3).dir = -pi / 2;
 
     % start & goal
-    Robot(randsample([0 90 180 270], 1));(1).xs = 1; Robot(randsample([0 90 180 270], 1));(1).ys = 4;
-    Robot(randsample([0 90 180 270], 1));(1).xt = 21; Robot(randsample([0 90 180 270], 1));(1).yt = 14;
+    Robots(1).xs = 1; Robots(1).ys = 4;
+    Robots(1).xt = 21; Robots(1).yt = 14;
 
-    Robot(randsample([0 90 180 270], 1));(2).xs = 25; Robot(randsample([0 90 180 270], 1));(2).ys = 4;
-    Robot(randsample([0 90 180 270], 1));(2).xt = 4; Robot(randsample([0 90 180 270], 1));(2).yt = 14;
+    Robots(2).xs = 25; Robots(2).ys = 4;
+    Robots(2).xt = 4; Robots(2).yt = 14;
 
-    Robot(randsample([0 90 180 270], 1));(3).xs = 5; Robot(randsample([0 90 180 270], 1));(3).ys = 7;
-    Robot(randsample([0 90 180 270], 1));(3).xt = 1; Robot(randsample([0 90 180 270], 1));(3).yt = 12;
+    Robots(3).xs = 5; Robots(3).ys = 7;
+    Robots(3).xt = 1; Robots(3).yt = 12;
 
     %% Area
     limArea = 28;
@@ -59,10 +59,10 @@ function Model = createModel_mh_1(Model)
 
             for nr = 1:robot_count
 
-                if i == Robot(randsample([0 90 180 270], 1));(nr).xs && j == Robot(randsample([0 90 180 270], 1));(nr).ys
-                    Robot(randsample([0 90 180 270], 1));(nr).startNode = k; % start node number
-                elseif i == Robot(randsample([0 90 180 270], 1));(nr).xt && j == Robot(randsample([0 90 180 270], 1));(nr).yt
-                    Robot(randsample([0 90 180 270], 1));(nr).targetNode = k; % target (final) node number
+                if i == Robots(nr).xs && j == Robots(nr).ys
+                    Robots(nr).startNode = k; % start node number
+                elseif i == Robots(nr).xt && j == Robots(nr).yt
+                    Robots(nr).targetNode = k; % target (final) node number
                 end
 
             end
@@ -87,7 +87,6 @@ function Model = createModel_mh_1(Model)
 
     end
 
-    
     %% Map Obsts
     Map.lim = limArea;
     Map.xMin = xMin;
@@ -103,11 +102,9 @@ function Model = createModel_mh_1(Model)
     Obsts.nodeNumber = obstNode;
     Obsts.r = obst_r;
 
-
     Model.Map = Map;
     Model.Obsts = Obsts;
 
-    
     %% save Model
     Model.robot_count = robot_count;
     Model.obstNode = obstNode;
@@ -121,7 +118,7 @@ function Model = createModel_mh_1(Model)
     Model.yMin = yMin;
     Model.yMax = yMax;
     Model.adj = adj;
-    Model.Robots(randsample([0 90 180 270], 1)); = Robot(randsample([0 90 180 270], 1));;
+    Model.Robots = Robots;
     Model.msc = msc;
 
 end
