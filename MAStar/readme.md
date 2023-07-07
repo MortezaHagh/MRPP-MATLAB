@@ -1,39 +1,44 @@
 # MRPP-MH: Multi Robot Path Planning based on Astar - MATLAB
 
-by Morteza Haghbeigi, m.haghbeigi@gmail.com
-
 ---------------------------------------------------------
+
 ## MRPP_simple
 
 no cooperation at all: many collisions
 no time in open list
 
-#### functions:
+#### functions
+
 - selectTopNode_simple
 - optimalPath_simple
 
 ---------------------------------------------------------
+
 ## MRPP_1
 
 expand open list by collision consideration
-with time in open list 
+with time in open list
 stall node is added
 
-#### functions:
+#### functions
+
 - selectTopNode_1
 - optimalPath_1
 
 ---------------------------------------------------------
+
 ## MRPP_2
 
 same as MRPP_1, only difference:
 calculates path and update Open for each robot that reaches target
 
-#### functions:
+#### functions
+
 - selectTopNode_1
 - optimalPath_1
 
 ---------------------------------------------------------
+
 ## in all
 
 adding targetNodes to ClosedList
