@@ -2,7 +2,7 @@ function neighbors = neighbors4(topnode, closed, Model, nr)
     % arrange neighbors based on robot direction
     % node pnode cost_g cost_f dir
 
-    xy = Model.Nodes.cord(:, topnode.node);
+    xy = Model.Nodes.cord(:, topnode.nodeNumber);
     robot = Model.robo(nr);
     dir = topnode.dir;
     x = xy(1);
@@ -34,14 +34,14 @@ function neighbors = neighbors4(topnode, closed, Model, nr)
 
         % check if the new node is within limits
         if ((nn_x >= Model.xmin && nn_x <= Model.xmax) && (nn_y >= Model.ymin && nn_y <= Model.ymax))
-            new_node = topnode.node + i + (j * (Model.xmax - Model.xmin + 1));
+            new_node = topnode.nodeNumber + i + (j * (Model.xmax - Model.xmin + 1));
 
             % check if it is in Closed list
-            if ~any(new_node == closed.nodes)
+            if ~any(new_node == closed.nodeNumbers)
                 nc = nc + 1;
                 list(nc).visited = 0;
-                list(nc).node = new_node;
-                list(nc).pnode = topnode.node;
+                list(nc).nodeNumber = new_node;
+                list(nc).pnode = topnode.nodeNumber;
                 list(nc).cost_g = topnode.cost_g + calDistance(x, y, nn_x, nn_y, Model.dist_type);
                 cost_h = calDistance(robot.xt, robot.yt, nn_x, nn_y, Model.dist_type);
                 list(nc).cost_f = list(nc).cost_g + cost_h;

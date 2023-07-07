@@ -207,8 +207,4 @@ function Model = createModel_mh_2(Model)
     Model.robo = robo;
     Model.msc = msc;
 
-    %% plot Model
-    % close
-    % plotModel(Model);
-
 end

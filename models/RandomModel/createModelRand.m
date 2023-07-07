@@ -176,7 +176,4 @@ function Model = createModelRand(Model, nObst, nRobot)
     Model.GV = GV;
     Model.G = G;
 
-    %% plot Model
-    % plotModel(Model);
-
 end

@@ -19,7 +19,7 @@ function paths = MRPP_1(Model)
         for nr = 1:robot_count
 
             % update mission flag
-            MissionFlag(nr) = (topnodes(nr).node ~= robo(nr).targetNode && isPath(nr) == 1);
+            MissionFlag(nr) = (topnodes(nr).nodeNumber ~= robo(nr).targetNode && isPath(nr) == 1);
 
             if MissionFlag(nr)
 
@@ -47,7 +47,7 @@ function paths = MRPP_1(Model)
                     open(nr).list(ot_ind(nr)).visited = 1;
                     topnodes(nr) = open(nr).list(ot_ind(nr));
                     closed(nr).count = closed(nr).count + 1;
-                    closed(nr).nodes(end + 1) = topnodes(nr).node;
+                    closed(nr).nodeNumbers(end + 1) = topnodes(nr).nodeNumber;
                 else
                     % if after trying stall nodes, no path found, robot stays at start node
                     isPath(nr) = 0;

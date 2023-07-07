@@ -6,7 +6,7 @@ function [ot_ind, np_count, open] = addStallNodes(np_count, open, targetNode, di
         np_count = np_count + 1;
         disp(['robot: ', num2str(nr), ',  np_count: ', num2str(np_count)])
 
-        target_10 = open(nr).list.node;
+        target_10 = open(nr).list.nodeNumber;
 
         if any(target_10)
             disp('')
@@ -39,7 +39,7 @@ function [ot_ind, np_count, open] = addStallNodes(np_count, open, targetNode, di
                 open(nr).list(j).tag = 1;
                 open(nr).list(tag_1_ind(i)).visited = 1;
                 open(nr).list(j).visited = -1;
-                open(nr).list(j).pnode = open(nr).list(j).node;
+                open(nr).list(j).pnode = open(nr).list(j).nodeNumber;
                 open(nr).list(j).cost_g = open(nr).list(j).cost_g + 1;
                 open(nr).list(j).cost_f = open(nr).list(j).cost_f + 1; % +i*10
                 open(nr).list(j).time = open(nr).list(j).time + 1;

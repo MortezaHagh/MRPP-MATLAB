@@ -32,7 +32,7 @@ function Path = modifyPath (Model, Path)
     end
 
     Path.coords = pathCoords;
-    Path.nodes = pathNodeNumbers;
+    Path.nodeNumbers = pathNodeNumbers;
     Path.dirs = pathDirs;
 
 end

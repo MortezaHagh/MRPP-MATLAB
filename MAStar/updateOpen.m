@@ -2,7 +2,7 @@ function open = updateOpen(open, neighbors)
 
     % update or extend Open list with the successor nodes
     for i = 1:neighbors.count
-        neighbors_open_common = [open.list.node] == neighbors.list(i).node & [open.list.visited] == 0;
+        neighbors_open_common = [open.list.nodeNumber] == neighbors.list(i).nodeNumber & [open.list.visited] == 0;
 
         % if there is a common node in neighbors and open
         if any(neighbors_open_common)

@@ -170,7 +170,4 @@ function Model = createModelFromExcel(Model)
     Model.GV = GV;
     Model.G = G;
 
-    %% plot Model
-    % plotModel(Model);
-
 end

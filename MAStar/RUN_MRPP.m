@@ -34,7 +34,7 @@ robot_count = Model.robot_count;
 % empty sol structure
 % empS.solChar = empChar;
 empS.smoothness = 0;
-empS.nodes = [];
+empS.nodeNumbers = [];
 empS.coords = [];
 empS.dirs = [];
 empS.cost = 0;
@@ -54,7 +54,7 @@ sol = paths;
 
 for nr = 1:robot_count
     sol(nr).n = nr;
-    sol(nr).len = numel(sol(nr).nodes);
+    sol(nr).len = numel(sol(nr).nodeNumbers);
     sol(nr).x = sol(nr).coords(:, 1);
     sol(nr).y = sol(nr).coords(:, 2);
     sol(nr).cost = calCostL(sol(nr).coords);
@@ -85,7 +85,7 @@ disp(num2str(tot_operation_time))
 % end
 
 % % plot solution
-plotModel(Model)
+plotModelMulti(Model)
 Color = hsv(robot_count);
 plotSolution(sol, Model, Color) % plot paths
 % plotAnimation_1(sol, Model, Color)    % animated points and paths, in turn.

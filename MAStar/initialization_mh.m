@@ -12,7 +12,7 @@ function [closed, open, topnodes, robo, paths, closed_init] = initialization_mh(
 
     % closed structure
     cemp.count = 0;
-    cemp.nodes = [];
+    cemp.nodeNumbers = [];
     closed = repmat(cemp, robot_count, 1);
 
     % open structure
@@ -22,7 +22,7 @@ function [closed, open, topnodes, robo, paths, closed_init] = initialization_mh(
 
     % optimal path structure
     p.coords = [];
-    p.nodes = [];
+    p.nodeNumbers = [];
     p.dirs = [];
     paths = repmat(p, robot_count, 1);
 
@@ -31,18 +31,18 @@ function [closed, open, topnodes, robo, paths, closed_init] = initialization_mh(
 
         % closed: put all obstacles on the Closed list
         closed(nr).count = closed(nr).count + num_Of_Obs;
-        closed(nr).nodes = [closed(nr).nodes, obstNode];
+        closed(nr).nodeNumbers = [closed(nr).nodeNumbers, obstNode];
 
         % add target nodes to closed lists
         %     rv=1:robot_count;
         %     for nnr = rv(rv~=nr)
         %         closed(nnr).count = closed(nnr).count+1;
-        %         closed(nnr).nodes(end+1) = robo(nr).targetNode;
+        %         closed(nnr).nodeNumbers(end+1) = robo(nr).targetNode;
         %     end
 
         % set the starting node (topnode) as the first node in Open
         topnode.visited = 1;
-        topnode.node = robo(nr).startNode;
+        topnode.nodeNumber = robo(nr).startNode;
         topnode.pnode = robo(nr).startNode;
         topnode.dir = robo(nr).dir;
         topnode.cost_g = 0;
@@ -57,7 +57,7 @@ function [closed, open, topnodes, robo, paths, closed_init] = initialization_mh(
 
         % add last node (hear start node) to Closed
         closed(nr).count = closed(nr).count + 1;
-        closed(nr).nodes(end + 1) = topnode.node;
+        closed(nr).nodeNumbers(end + 1) = topnode.nodeNumber;
     end
 
     % topnodes

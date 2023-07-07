@@ -9,21 +9,21 @@ function path = optimalPath_simple(Model, open, isPath, nr)
         i = 2;
 
         % Traverse Open and determine the parent nodes
-        parent_ind = [open.list.node] == path_nodes(1);
+        parent_ind = [open.list.nodeNumber] == path_nodes(1);
         parent_node = open.list(parent_ind).pnode;
 
         % going back to start node
         while parent_node ~= Model.robo(nr).startNode
             path_nodes(i) = parent_node;
-            parent_ind = [open.list.node] == parent_node;
+            parent_ind = [open.list.nodeNumber] == parent_node;
             parent_node = open.list(parent_ind).pnode;
             i = i + 1;
         end
 
     end
 
-    path.nodes = [Model.robo(nr).startNode, flip(path_nodes)];
-    path.coords = nodes2coords(path.nodes, Model);
-    path.dirs = nodes2dirs(path.nodes, Model);
+    path.nodeNumbers = [Model.robo(nr).startNode, flip(path_nodes)];
+    path.coords = nodes2coords(path.nodeNumbers, Model);
+    path.dirs = nodes2dirs(path.nodeNumbers, Model);
 
 end

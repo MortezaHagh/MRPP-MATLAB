@@ -95,8 +95,4 @@ function Model = createModel_mh_ctest(Model)
     Model.robo = robo;
     Model.msc = msc;
 
-    %% plot Model
-    % close
-    % plotModel(Model);
-
 end
