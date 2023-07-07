@@ -9,7 +9,7 @@ function plotModelMulti(Model)
     Robot = Model.Robot;
 
     % figure(1)
-    axis([xmin - 1, xmax + 1, ymin - 1, ymax + 1])
+    axis([xmin - 3, xmax + 3, ymin - 3, ymax + 3])
     axis equal
     % grid minor
     % grid on
@@ -47,6 +47,6 @@ function plotModelMulti(Model)
     % end
 
     % walls
-    rectangle('Position', [xmin - 0.5 ymin - 0.5 (xmax - xmin + 1) (ymax - ymin + 1)], 'LineWidth', 5)
+    rectangle('Position', [xmin - 2, ymin - 2, (xmax - xmin + 3), (ymax - ymin + 3)], 'LineWidth', 2)
 
 end
