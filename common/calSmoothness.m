@@ -19,8 +19,8 @@ function smoothness = calSmoothness(pathCoords)
             a = sqrt(dx(i + 1) ^ 2 + dy(i + 1) ^ 2);
             b = sqrt(dx(i) ^ 2 + dy(i) ^ 2);
             c = (solX(i) - solX(i + 2)) ^ 2 + (solY(i) - solY(i + 2)) ^ 2;
-            gamma = abs(acosd((a ^ 2 + b ^ 2 - c) / (2 * a * b)));
-            alpha(i) = 180 - gamma;
+            gamma = abs(acos((a ^ 2 + b ^ 2 - c) / (2 * a * b)));
+            alpha(i) = pi - gamma;
         end
 
         sm = sum(alpha);
