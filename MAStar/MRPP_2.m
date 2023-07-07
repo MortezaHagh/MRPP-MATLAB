@@ -26,15 +26,15 @@ function paths = MRPP_2(Model)
             % update mission flag
             % MissionFlag(nr) = (topnodes(nr).nodeNumber~=robots(nr).targetNode && isPath(nr) == 1);
             if MissionFlag(nr)
-                
+
                 % finding neighbors (successors)
                 neighbors = expand(topnodes(nr), closed(nr), Model, nr);
 
-%                 if strcmp(Model.adjType, '4adj')
-%                     neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
-%                 elseif strcmp(Model.adjType, '8adj')
-%                     neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
-%                 end
+                % if strcmp(Model.adjType, '4adj')
+                %     neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
+                % elseif strcmp(Model.adjType, '8adj')
+                %     neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
+                % end
 
                 % update or extend open list with the successor nodes
                 open(nr) = updateOpen(open(nr), neighbors);

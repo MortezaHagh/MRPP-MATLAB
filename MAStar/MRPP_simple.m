@@ -24,11 +24,13 @@ function paths = MRPP_simple(Model)
             if MissionFlag(nr)
 
                 % finding neighbors (successors)
-                if strcmp(Model.adjType, '4adj')
-                    neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
-                elseif strcmp(Model.adjType, '8adj')
-                    neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
-                end
+                neighbors = expand(topnodes(nr), closed(nr), Model, nr);
+
+                % if strcmp(Model.adjType, '4adj')
+                %     neighbors = neighbors4(topnodes(nr), closed(nr), Model, nr);
+                % elseif strcmp(Model.adjType, '8adj')
+                %     neighbors = neighbors8(topnodes(nr), closed(nr), Model, nr);
+                % end
 
                 % update or extend open list with the successor nodes
                 open(nr) = updateOpen(open(nr), neighbors);
