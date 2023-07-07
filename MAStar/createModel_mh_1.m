@@ -102,6 +102,8 @@ function Model = createModel_mh_1(Model)
     Obsts.nodeNumber = obstNode;
     Obsts.r = obst_r;
 
+    Model.robotCount = robot_count;
+
     Model.Map = Map;
     Model.Obsts = Obsts;
 

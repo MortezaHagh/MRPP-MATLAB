@@ -11,8 +11,8 @@ addpath('..\common');
 addpath('..\models');
 
 % settings
-Model.dist_type = 'euclidean'; % '4adj' '8adj'
-Model.adj_type = '8adj'; % euclidean manhattan;
+Model.dist_type = 'manhattan';  % euclidean manhattan;
+Model.adj_type = '4adj';        % '4adj' '8adj'
 
 % create Model
 % createModel_mh_1 createModel_mh_2 createModel_mh_ctest
