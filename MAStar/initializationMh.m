@@ -1,4 +1,4 @@
-function [Closed, Open, topnodes, Robots, Paths, closedInit] = initializationMh(Model)
+function [Closed, Open, Topnodes, Robots, Paths, closedInit] = initializationMh(Model)
 
     % Initialization and Parameters
 
@@ -60,8 +60,8 @@ function [Closed, Open, topnodes, Robots, Paths, closedInit] = initializationMh(
         Closed(nr).nodeNumbers(end + 1) = topNode.nodeNumber;
     end
 
-    % topnodes
-    topnodes = [Open.List];
+    % Topnodes
+    Topnodes = [Open.List];
 
     closedInit = Closed;
 end
